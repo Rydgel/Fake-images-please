@@ -6,7 +6,6 @@ Werkzeug
 gunicorn
 gevent
 pylibmc
-tweepy
 simplejson
 nose
 django-htmlmin
