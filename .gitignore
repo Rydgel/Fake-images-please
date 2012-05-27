@@ -1,0 +1,5 @@
+venv
+*.pyc
+.env
+.DS_Store
+.sass-cache

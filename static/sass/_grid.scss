@@ -1,0 +1,14 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "susy";
+
+// ---------------------------------------------------------------------------
+// Basic Grid
+
+$total-columns  : 4;
+$column-width   : 4em;
+$gutter-width   : 2em;
+$grid-padding   : $gutter-width;
+
+$break: 40em 10 lt-ie9;

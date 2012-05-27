@@ -1,0 +1,16 @@
+Flask
+Jinja2
+MarkupSafe
+Pygments
+Werkzeug
+gunicorn
+gevent
+pylibmc
+tweepy
+simplejson
+nose
+django-htmlmin
+blinker
+newrelic
+pillow
+cStringIO
