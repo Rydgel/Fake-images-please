@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os
-import logging
-import sys
 import re
 from flask import Flask, render_template, abort, request
 from helpers.decorators import minified, cached

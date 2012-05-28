@@ -26,7 +26,7 @@ p {
 }
 
 h1 {
-	@include adjust-font-size-to(39px);
+	@include adjust-font-size-to(30px);
 	@include at-breakpoint($break) { 
   		@include adjust-font-size-to(54px);
   }
@@ -35,10 +35,10 @@ h1 {
 }
 
 h2 {
-	letter-spacing: .4em;
+	letter-spacing: .3em;
 	text-indent: .2em;
 	text-transform: uppercase;
-	@include adjust-font-size-to(14px);
+	@include adjust-font-size-to(12px);
 	@include at-breakpoint($break) { 
 	    @include adjust-font-size-to(16px);
 	}

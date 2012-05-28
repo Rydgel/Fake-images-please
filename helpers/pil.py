@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# -e git+git://github.com/fuzion/pil-2009-raclette.git#egg=PIL
 import os
 import cStringIO
 from PIL import Image, ImageDraw, ImageFont

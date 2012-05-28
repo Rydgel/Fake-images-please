@@ -100,8 +100,8 @@ p {
 
 /* line 28, ../sass/_typo.scss */
 h1 {
-  font-size: 2.438em;
-  line-height: 1.231em;
+  font-size: 1.875em;
+  line-height: 1.6em;
   font-family: "brandon-grotesque", serif;
   font-weight: bold;
 }
@@ -120,11 +120,11 @@ h1 {
 
 /* line 37, ../sass/_typo.scss */
 h2 {
-  letter-spacing: .4em;
+  letter-spacing: .3em;
   text-indent: .2em;
   text-transform: uppercase;
-  font-size: 0.875em;
-  line-height: 1.714em;
+  font-size: 0.75em;
+  line-height: 2em;
 }
 @media (min-width: 40em) {
   /* line 37, ../sass/_typo.scss */

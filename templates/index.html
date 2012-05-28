@@ -11,7 +11,7 @@
   <meta name="description" content="Fakeimg.pl is a little tool that generates images with an URL. Choose the size, the colors, even the text. Oh… and it’s free.">
   <meta name="author" content="Jérôme Mahuet">
   <meta name="google-site-verification" content="">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/screen.css') }}">
 
@@ -43,18 +43,15 @@
 <figure id="example">
   <div class="container">
     <aside role="sidebar">
-      <p>When designing websites, you may not have the images you need at first. But you already know the sizes and inserting some placeholders can help you better seeing the layout. Don’t waste your time making dummy images for your mockup or wireframe. Fakeimg.pl is a little tool that generates images with an URL. Choose the size, the colors, even the text. It’s free and <a target="_blank" href="">open-source</a>.</p>
+      <p>When designing websites, you may not have the images you need at first. But you already know the sizes and inserting some placeholders can help you better seeing the layout. Don’t waste your time making dummy images for your mockup or wireframe. <strong>Fakeimg.pl</strong> is a little tool that generates images with an URL. Choose the size, the colors, even the text. It’s free and <a target="_blank" href="">open-source</a>.</p>
       <h3>How to use</h3>
-      <p>We choose to go to the moon. We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard, because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one which we intend to win, and the others, too.</p>
-    <p>
-      <ul>
-        <li>first.</li>
-        <li>second.</li>
-      </ul>
-    </p>
-      <p>I am a stranger. I come in peace. Take me to your leader and there will be a massive reward for you in eternity.</p>  
+      <p>You just have to put your image size after our URL. Only the first parameter is mandatory. There are options too, you can pass a text, or change some colors. Colors must be hexadecimal, the first one is the background color. The text can be passed with the <strong>text</strong> GET variable. Here are some examples you can look at:</p>
       <pre><code>&lt;img src="http://fakeimg.pl/300/"&gt;
-&lt;img src="http://fakeimg.pl/250x100/"&gt;</code></pre>
+&lt;img src="http://fakeimg.pl/250x100/"&gt;
+&lt;img src="http://fakeimg.pl/250x100/ff0000/"&gt;
+&lt;img src="http://fakeimg.pl/350x200/ff0000/000"&gt;
+&lt;img src="http://fakeimg.pl/350x200/?text=Hello"&gt;</code></pre>
+      <p>Use them directly in an image tag or a background CSS, or whatever you want to. This is a first draft, so you may expect some new features soon.</p>
     </aside>
     <section role="images">
       <div class="first-line">
