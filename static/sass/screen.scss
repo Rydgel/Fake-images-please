@@ -68,6 +68,8 @@ header[role=banner] {
 	}
 	
 	section[role=share] {
+	  width: 66px;
+	  
 	  @include adjust-font-size-to(20px);
 	  
   	@include at-breakpoint($break) {

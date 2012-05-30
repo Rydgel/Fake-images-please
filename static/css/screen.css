@@ -252,6 +252,7 @@ header[role=banner] h2 {
 }
 /* line 70, ../sass/screen.scss */
 header[role=banner] section[role=share] {
+  width: 66px;
   font-size: 1.25em;
   line-height: 1.2em;
 }
@@ -265,20 +266,20 @@ header[role=banner] section[role=share] {
 .lt-ie9 header[role=banner] section[role=share] {
   float: right;
 }
-/* line 76, ../sass/screen.scss */
+/* line 78, ../sass/screen.scss */
 header[role=banner] section[role=share] .twitter-share-button {
   float: left;
 }
-/* line 79, ../sass/screen.scss */
+/* line 81, ../sass/screen.scss */
 header[role=banner] section[role=share] .fb-like {
   float: left;
 }
-/* line 83, ../sass/screen.scss */
+/* line 85, ../sass/screen.scss */
 header[role=banner] section[role=share] .fb_iframe_widget span {
   vertical-align: top;
 }
 
-/* line 89, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
 .container {
   *zoom: 1;
   max-width: 22em;
@@ -295,7 +296,7 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   clear: both;
 }
 @media (min-width: 40em) {
-  /* line 89, ../sass/screen.scss */
+  /* line 91, ../sass/screen.scss */
   .container {
     *zoom: 1;
     max-width: 58em;
@@ -328,7 +329,7 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   display: table;
   clear: both;
 }
-/* line 96, ../sass/screen.scss */
+/* line 98, ../sass/screen.scss */
 .container section[role=images] img {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -336,7 +337,7 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 99, ../sass/screen.scss */
+/* line 101, ../sass/screen.scss */
 .container section[role=images] .first-line {
   width: 100%;
   float: left;
@@ -344,14 +345,14 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   display: inline;
   margin-bottom: 24px;
 }
-/* line 103, ../sass/screen.scss */
+/* line 105, ../sass/screen.scss */
 .container section[role=images] .second-line-1 {
   width: 45.455%;
   float: left;
   margin-right: 9.091%;
   display: inline;
 }
-/* line 106, ../sass/screen.scss */
+/* line 108, ../sass/screen.scss */
 .container section[role=images] .second-line-2 {
   width: 45.455%;
   float: right;
@@ -359,7 +360,7 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   #margin-left: -2em;
   display: inline;
 }
-/* line 109, ../sass/screen.scss */
+/* line 111, ../sass/screen.scss */
 .container section[role=images] .third-line {
   width: 100%;
   float: left;
@@ -368,7 +369,7 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   margin-top: 24px;
 }
 @media (min-width: 40em) {
-  /* line 95, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   .container section[role=images] {
     width: 37.931%;
     float: right;
@@ -386,7 +387,7 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   display: inline;
 }
 @media (min-width: 40em) {
-  /* line 119, ../sass/screen.scss */
+  /* line 121, ../sass/screen.scss */
   .container aside[role=sidebar] {
     width: 58.621%;
     float: left;
@@ -402,7 +403,7 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   display: inline;
 }
 
-/* line 126, ../sass/screen.scss */
+/* line 128, ../sass/screen.scss */
 pre > code {
   font-family: Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace;
   background: #faefde;
@@ -420,13 +421,13 @@ pre > code {
   border-radius: 5px;
 }
 
-/* line 138, ../sass/screen.scss */
+/* line 140, ../sass/screen.scss */
 figure#example {
   padding-top: 1.125em;
   padding-bottom: 1.125em;
 }
 
-/* line 143, ../sass/screen.scss */
+/* line 145, ../sass/screen.scss */
 footer {
   margin-top: 1.125em;
   margin-bottom: 1.125em;
