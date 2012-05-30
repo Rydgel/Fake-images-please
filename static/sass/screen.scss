@@ -7,8 +7,8 @@
 @import "typo";
 @import "icon";
 
-$bg-color: #2B3844;
-$text-color: #FAEFDE;
+$bg-color: #333333;
+$text-color: #eae0d0;
 $border-color: $bg-color;
 $hl-color: #FFA273;
 
@@ -49,7 +49,7 @@ img {
 }
 
 body {
-	background: url(../images/pattern.gif) $bg-color;
+	background: url(../images/dark_wall.png) $bg-color;
 	color: $text-color;
 }
 
@@ -126,12 +126,10 @@ header[role=banner] {
 }
 
 pre > code {
-  font-family: Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace;
   background: $text-color;
   @include margin-trailer(1);
   padding: 0.6em;
   display: block;
-  @include adjust-font-size-to(12px);
   word-wrap: break-word;
   color: $bg-color;
   @include border-radius(5px);
@@ -144,5 +142,7 @@ figure#example {
 
 footer {
 	@include margin-leader(.75);
-	@include margin-trailer(.75);
+	@include padding-leader(.75);
+	background: rgba(0, 0, 0, 0.2);
+	border-top: 1px solid rgba(255, 255, 255, .1);
 }

@@ -6,6 +6,7 @@ $base-line-height     : 24px;
 
 $font-family: "ff-dagny-web-pro", Helvetica, Arial, sans-serif;
 $script-family: "brandon-grotesque", serif;
+$mono-family: Menlo, Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace;
 
 @include establish-baseline;
 
@@ -15,7 +16,11 @@ body {
 	    @include adjust-font-size-to(20px);
 	    line-height: 1.5;
 	}
-	-webkit-font-smoothing: antialiased;
+}
+
+code {
+  font-family: $mono-family;
+  @include adjust-font-size-to(12px);
 }
 
 p {
