@@ -1,7 +1,3 @@
-### 
-Author: Jérôme Mahuet
-###
-
 clic = (dom_id, width=500, height=300) ->
 	dom_id.onclick = () ->
 		window.open dom_id.href, "", "width=#{width}, height=#{height}"
