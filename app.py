@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-#@cached(60, 'index')
+@cached(60, 'index')
 def index():
     """Home page"""
     return render_template('index.html', **locals())
