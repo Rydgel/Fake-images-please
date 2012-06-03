@@ -13,7 +13,6 @@ from helpers.pil import pil_image, serve_pil_image
 app = Flask(__name__)
 
 
-# Views
 @app.route('/')
 #@cached(60, 'index')
 def index():
@@ -71,25 +70,20 @@ def favicon():
 @app.route('/apple-touch-icon<format>.png')
 def apple_touch(format=""):
     """Shitty logo Apple"""
-    file = 'apple-touch-icon' + format + '.png'
+    file = 'apple-touch-icon%s.png' % format
     return app.send_static_file(file)
 
 
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):
     """Send your static text file."""
-    file_dot_text = file_name + '.txt'
+    file_dot_text = '%s.txt' % file_name
     return app.send_static_file(file_dot_text)
 
 
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
-
-
-@app.errorhandler(403)
-def forbidden(e):
-    return render_template('403.html'), 403
 
 
 if __name__ == '__main__':
@@ -109,3 +103,4 @@ if __name__ == '__main__':
             sentry = Sentry(app)
 
     app.run(host='0.0.0.0', port=port)
+

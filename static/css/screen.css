@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 17, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,82 +21,82 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
-/* line 66, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 66, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 100%;
   line-height: 1.5em;
 }
 
-/* line 13, /Users/rydgel/Documents/www/placeholdme/static/sass/_typo.scss */
+/* line 13, ../sass/_typo.scss */
 body {
   font-family: "ff-dagny-web-pro", Helvetica, Arial, sans-serif;
 }
 @media (min-width: 40em) {
-  /* line 13, /Users/rydgel/Documents/www/placeholdme/static/sass/_typo.scss */
+  /* line 13, ../sass/_typo.scss */
   body {
     font-size: 1.25em;
     line-height: 1.2em;
     line-height: 1.5;
   }
 }
-/* line 79, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
+/* line 79, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
 .lt-ie9 body {
   font-size: 1.25em;
   line-height: 1.2em;
   line-height: 1.5;
 }
 
-/* line 21, /Users/rydgel/Documents/www/placeholdme/static/sass/_typo.scss */
+/* line 21, ../sass/_typo.scss */
 code {
   font-family: Menlo, Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
   font-size: 0.75em;
   line-height: 2em;
 }
 
-/* line 26, /Users/rydgel/Documents/www/placeholdme/static/sass/_typo.scss */
+/* line 26, ../sass/_typo.scss */
 p {
   margin-bottom: 1.5em;
   -webkit-hyphens: auto;
@@ -104,7 +104,7 @@ p {
   hyphens: auto;
 }
 
-/* line 33, /Users/rydgel/Documents/www/placeholdme/static/sass/_typo.scss */
+/* line 33, ../sass/_typo.scss */
 h1 {
   font-size: 1.875em;
   line-height: 1.6em;
@@ -112,19 +112,19 @@ h1 {
   font-weight: bold;
 }
 @media (min-width: 40em) {
-  /* line 33, /Users/rydgel/Documents/www/placeholdme/static/sass/_typo.scss */
+  /* line 33, ../sass/_typo.scss */
   h1 {
     font-size: 3.375em;
     line-height: 1.333em;
   }
 }
-/* line 79, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
+/* line 79, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
 .lt-ie9 h1 {
   font-size: 3.375em;
   line-height: 1.333em;
 }
 
-/* line 42, /Users/rydgel/Documents/www/placeholdme/static/sass/_typo.scss */
+/* line 42, ../sass/_typo.scss */
 h2 {
   letter-spacing: .3em;
   text-indent: .2em;
@@ -133,19 +133,19 @@ h2 {
   line-height: 2em;
 }
 @media (min-width: 40em) {
-  /* line 42, /Users/rydgel/Documents/www/placeholdme/static/sass/_typo.scss */
+  /* line 42, ../sass/_typo.scss */
   h2 {
     font-size: 1em;
     line-height: 1.5em;
   }
 }
-/* line 79, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
+/* line 79, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
 .lt-ie9 h2 {
   font-size: 1em;
   line-height: 1.5em;
 }
 
-/* line 52, /Users/rydgel/Documents/www/placeholdme/static/sass/_typo.scss */
+/* line 52, ../sass/_typo.scss */
 h3 {
   font-size: 1.75em;
   line-height: 1.714em;
@@ -163,7 +163,7 @@ h3 {
   font-style: normal;
 }
 
-/* line 13, /Users/rydgel/Documents/www/placeholdme/static/sass/_icon.scss */
+/* line 13, ../sass/_icon.scss */
 [class^="icon-"], [class*=" icon-"] {
   font-family: fontello;
   font-style: normal;
@@ -174,118 +174,121 @@ h3 {
   text-align: center;
 }
 
-/* line 25, /Users/rydgel/Documents/www/placeholdme/static/sass/_icon.scss */
+/* line 25, ../sass/_icon.scss */
 .the-icons li {
   font-size: 14px;
   line-height: 24px;
   height: 24px;
 }
 
-/* line 31, /Users/rydgel/Documents/www/placeholdme/static/sass/_icon.scss */
+/* line 31, ../sass/_icon.scss */
 .icon-twitter:before {
   content: "";
 }
 
 /* '\f304' */
-/* line 32, /Users/rydgel/Documents/www/placeholdme/static/sass/_icon.scss */
+/* line 32, ../sass/_icon.scss */
 .icon-facebook:before {
   content: "";
 }
 
 /* '\f308' */
-/* -------------------------------------------------------------------------*/
-/* Layout */
-/* line 18, ../sass/screen.scss */
+/* line 13, ../sass/screen.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 17, ../sass/screen.scss */
 em {
   font-style: italic;
 }
 
-/* line 22, ../sass/screen.scss */
+/* line 21, ../sass/screen.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 26, ../sass/screen.scss */
+/* line 25, ../sass/screen.scss */
 a, a:visited {
   text-decoration: none;
   color: #ffa273;
 }
 
-/* line 31, ../sass/screen.scss */
+/* line 30, ../sass/screen.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 35, ../sass/screen.scss */
+/* line 34, ../sass/screen.scss */
 a:active {
   position: relative;
   top: 1px;
 }
 
-/* line 40, ../sass/screen.scss */
+/* line 39, ../sass/screen.scss */
 ul li {
   list-style: disc;
   margin-bottom: 1.5em;
 }
 
-/* line 45, ../sass/screen.scss */
+/* line 44, ../sass/screen.scss */
 img {
   width: auto;
   height: auto;
   max-width: 100%;
 }
 
-/* line 51, ../sass/screen.scss */
+/* line 50, ../sass/screen.scss */
 body {
   background: url(../images/dark_wall.png) #333333;
   color: #eae0d0;
 }
 
-/* line 56, ../sass/screen.scss */
+/* line 55, ../sass/screen.scss */
 header[role=banner] {
   margin-top: 0.75em;
   border-color: #ffa273;
 }
-/* line 60, ../sass/screen.scss */
+/* line 59, ../sass/screen.scss */
 header[role=banner] h1 {
   margin-top: 0.75em;
   margin-bottom: 0.15em;
 }
-/* line 65, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 header[role=banner] h2 {
   color: #ffa273;
   margin-bottom: 0.99em;
 }
-/* line 70, ../sass/screen.scss */
+/* line 69, ../sass/screen.scss */
 header[role=banner] section[role=share] {
   width: 66px;
   font-size: 1.25em;
   line-height: 1.2em;
 }
 @media (min-width: 40em) {
-  /* line 70, ../sass/screen.scss */
+  /* line 69, ../sass/screen.scss */
   header[role=banner] section[role=share] {
     float: right;
   }
 }
-/* line 79, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
+/* line 79, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
 .lt-ie9 header[role=banner] section[role=share] {
   float: right;
 }
-/* line 78, ../sass/screen.scss */
+/* line 77, ../sass/screen.scss */
 header[role=banner] section[role=share] .twitter-share-button {
   float: left;
 }
-/* line 81, ../sass/screen.scss */
+/* line 80, ../sass/screen.scss */
 header[role=banner] section[role=share] .fb-like {
   float: left;
 }
-/* line 85, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 header[role=banner] section[role=share] .fb_iframe_widget span {
   vertical-align: top;
 }
 
-/* line 91, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 .container {
   *zoom: 1;
   max-width: 22em;
@@ -295,14 +298,14 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   padding-left: 2em;
   padding-right: 2em;
 }
-/* line 38, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .container:after {
   content: "";
   display: table;
   clear: both;
 }
 @media (min-width: 40em) {
-  /* line 91, ../sass/screen.scss */
+  /* line 89, ../sass/screen.scss */
   .container {
     *zoom: 1;
     max-width: 58em;
@@ -312,14 +315,14 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
     padding-left: 2em;
     padding-right: 2em;
   }
-  /* line 38, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+  /* line 38, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
   .container:after {
     content: "";
     display: table;
     clear: both;
   }
 }
-/* line 79, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
+/* line 79, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
 .lt-ie9 .container {
   *zoom: 1;
   max-width: 58em;
@@ -329,13 +332,13 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   padding-left: 2em;
   padding-right: 2em;
 }
-/* line 38, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .lt-ie9 .container:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 98, ../sass/screen.scss */
+/* line 96, ../sass/screen.scss */
 .container section[role=images] img {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -343,7 +346,7 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 101, ../sass/screen.scss */
+/* line 99, ../sass/screen.scss */
 .container section[role=images] .first-line {
   width: 100%;
   float: left;
@@ -351,14 +354,14 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   display: inline;
   margin-bottom: 24px;
 }
-/* line 105, ../sass/screen.scss */
+/* line 103, ../sass/screen.scss */
 .container section[role=images] .second-line-1 {
   width: 45.455%;
   float: left;
   margin-right: 9.091%;
   display: inline;
 }
-/* line 108, ../sass/screen.scss */
+/* line 106, ../sass/screen.scss */
 .container section[role=images] .second-line-2 {
   width: 45.455%;
   float: right;
@@ -366,7 +369,7 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   #margin-left: -2em;
   display: inline;
 }
-/* line 111, ../sass/screen.scss */
+/* line 109, ../sass/screen.scss */
 .container section[role=images] .third-line {
   width: 100%;
   float: left;
@@ -375,7 +378,7 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   margin-top: 24px;
 }
 @media (min-width: 40em) {
-  /* line 97, ../sass/screen.scss */
+  /* line 95, ../sass/screen.scss */
   .container section[role=images] {
     width: 37.931%;
     float: right;
@@ -384,7 +387,7 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
     display: inline;
   }
 }
-/* line 79, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
+/* line 79, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
 .lt-ie9 .container section[role=images] {
   width: 37.931%;
   float: right;
@@ -393,7 +396,7 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   display: inline;
 }
 @media (min-width: 40em) {
-  /* line 121, ../sass/screen.scss */
+  /* line 119, ../sass/screen.scss */
   .container aside[role=sidebar] {
     width: 58.621%;
     float: left;
@@ -401,7 +404,7 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
     display: inline;
   }
 }
-/* line 79, /Users/rydgel/.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
+/* line 79, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
 .lt-ie9 .container aside[role=sidebar] {
   width: 58.621%;
   float: left;
@@ -409,7 +412,7 @@ header[role=banner] section[role=share] .fb_iframe_widget span {
   display: inline;
 }
 
-/* line 128, ../sass/screen.scss */
+/* line 126, ../sass/screen.scss */
 pre > code {
   background: #eae0d0;
   margin-bottom: 1.5em;
@@ -424,16 +427,72 @@ pre > code {
   border-radius: 5px;
 }
 
-/* line 138, ../sass/screen.scss */
+/* line 136, ../sass/screen.scss */
 figure#example {
   padding-top: 1.125em;
   padding-bottom: 1.125em;
 }
 
-/* line 143, ../sass/screen.scss */
+/* line 141, ../sass/screen.scss */
 footer {
   margin-top: 1.125em;
   padding-top: 1.125em;
   background: rgba(0, 0, 0, 0.2);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+@media (min-width: 40em) {
+  /* line 147, ../sass/screen.scss */
+  footer .footer-left {
+    width: 58.621%;
+    float: left;
+    margin-right: 3.448%;
+    display: inline;
+  }
+}
+/* line 79, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
+.lt-ie9 footer .footer-left {
+  width: 58.621%;
+  float: left;
+  margin-right: 3.448%;
+  display: inline;
+}
+@media (min-width: 40em) {
+  /* line 153, ../sass/screen.scss */
+  footer .footer-right {
+    width: 37.931%;
+    float: right;
+    margin-right: 0;
+    #margin-left: -2em;
+    display: inline;
+  }
+}
+/* line 79, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/susy-1.0.rc.0/sass/susy/_media.scss */
+.lt-ie9 footer .footer-right {
+  width: 37.931%;
+  float: right;
+  margin-right: 0;
+  #margin-left: -2em;
+  display: inline;
+}
+
+/* line 160, ../sass/screen.scss */
+.mega-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+/* line 165, ../sass/screen.scss */
+.mega-wrapper .img-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  height: 500px;
+}
+/* line 170, ../sass/screen.scss */
+.mega-wrapper .img-wrapper img {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
 }
