@@ -8,9 +8,10 @@ from flask import send_file
 
 dirname = os.path.dirname
 FONT_PATH = '%s/font/YanoneKaffeesatz-Bold.otf' % dirname(dirname(__file__))
+LOB_PATH = '%s/font/Lobster 1.4.otf' % dirname(dirname(__file__))
 
 
-def pil_image(width, height, color_bgd, color_fgd, txt=None):
+def pil_image(width, height, color_bgd, color_fgd, txt=None, lobster=None):
     size = (width, height)
     hex_color_background = "#%s" % color_bgd
     hex_color_foreground = "#%s" % color_fgd
@@ -23,7 +24,10 @@ def pil_image(width, height, color_bgd, color_fgd, txt=None):
         txt = "%d x %d"  % (width, height)
     
     font_size = _calculate_font_size(width, height)
-    font = ImageFont.truetype(FONT_PATH, font_size)
+    if lobster is not None:
+        font = ImageFont.truetype(LOB_PATH, font_size)
+    else:
+        font = ImageFont.truetype(FONT_PATH, font_size)
     w, h = font.getsize(txt)
     text_coord = ( (width-w)/2, (height-h)/2 )
     draw.text(text_coord, txt, fill=hex_color_foreground, font=font)

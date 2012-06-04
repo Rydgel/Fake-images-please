@@ -42,8 +42,10 @@ def placeholder(width, height=None, color_bgd="cccccc", color_fgd="909090"):
                 abort(404)
         # get optionnal caption
         txt = request.args.get('text', None)
+        # lobster for the shitty designers
+        lobster = request.args.get('lobster', None)
         # processing image
-        im = pil_image(width, height, color_bgd, color_fgd, txt)
+        im = pil_image(width, height, color_bgd, color_fgd, txt, lobster)
         return serve_pil_image(im)
     abort(404)
 
