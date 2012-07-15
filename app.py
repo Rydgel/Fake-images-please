@@ -17,7 +17,7 @@ app = Flask(__name__)
 @cached(60, 'index')
 def index():
     """Home page"""
-    return render_template('index.html', **locals())
+    return render_template('index.html')
 
 
 @app.route('/<int:width>/')
