@@ -4,13 +4,15 @@
 import os
 import sys
 import logging
-import re
 from flask import Flask, render_template, abort, request
-from helpers.decorators import minified, cached
+from helpers.decorators import cached
 from helpers.pil import pil_image, serve_pil_image
+from helpers.colors_converter import ColorConverter
 
 
 app = Flask(__name__)
+# Custom converter for matching hexadecimal colors
+app.url_map.converters['color'] = ColorConverter
 
 
 @app.route('/')
@@ -22,8 +24,8 @@ def index():
 
 @app.route('/<int:width>/')
 @app.route('/<int:width>x<int:height>/')
-@app.route('/<int:width>x<int:height>/<color_bgd>/')
-@app.route('/<int:width>x<int:height>/<color_bgd>/<color_fgd>/')
+@app.route('/<int:width>x<int:height>/<color:color_bgd>/')
+@app.route('/<int:width>x<int:height>/<color:color_bgd>/<color:color_fgd>/')
 def placeholder(width, height=None, color_bgd="cccccc", color_fgd="909090"):
     if width is not None:
         if height is None:
@@ -31,15 +33,6 @@ def placeholder(width, height=None, color_bgd="cccccc", color_fgd="909090"):
         # check size limit
         if width > 4000 or height > 4000:
             abort(404)
-        # check if colors are valid hexadecimal
-        r = "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-        match = re.search(r, color_bgd)
-        if match is None:
-            abort(404)
-        else:
-            match = re.search(r, color_fgd)
-            if match is None:
-                abort(404)
         # get optionnal caption
         txt = request.args.get('text', None)
         # lobster for the shitty designers
@@ -99,10 +92,7 @@ if __name__ == '__main__':
         handler = logging.StreamHandler(sys.stdout)
         handler.setLevel(logging.WARNING)
         app.logger.addHandler(handler)
-        # Sentry
-        if os.environ.get('SENTRY_DSN') is not None:
-            app.config['SENTRY_DSN'] = os.environ.get('SENTRY_DSN')
-            sentry = Sentry(app)
+
 
     app.run(host='0.0.0.0', port=port)
 
