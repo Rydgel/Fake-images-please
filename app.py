@@ -29,17 +29,15 @@ def index():
 @app.route('/<imgs:width>x<imgs:height>/<color:bgd>/')
 @app.route('/<imgs:width>x<imgs:height>/<color:bgd>/<color:fgd>/')
 def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
-    if width is not None:
-        if height is None:
-            height = width
-        # get optionnal caption
-        txt = request.args.get('text', None)
-        # lobster for the shitty designers
-        lobster = request.args.get('lobster', None)
-        # processing image
-        im = pil_image(width, height, bgd, fgd, txt, lobster)
-        return serve_pil_image(im)
-    abort(404)
+    if height is None:
+        height = width
+    # get optionnal caption
+    txt = request.args.get('text', None)
+    # lobster for the shitty designers
+    lobster = request.args.get('lobster', None)
+    # processing image
+    im = pil_image(width, height, bgd, fgd, txt, lobster)
+    return serve_pil_image(im)
 
 
 # basic stuff
