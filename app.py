@@ -7,12 +7,14 @@ import logging
 from flask import Flask, render_template, abort, request
 from helpers.decorators import cached
 from helpers.pil import pil_image, serve_pil_image
-from helpers.colors_converter import ColorConverter
+from helpers.converters import ColorConverter, ImgSizeConverter
 
 
 app = Flask(__name__)
 # Custom converter for matching hexadecimal colors
 app.url_map.converters['color'] = ColorConverter
+# Custom converter for not having an image > 4000px
+app.url_map.converters['imgs'] = ImgSizeConverter
 
 
 @app.route('/')
@@ -22,23 +24,20 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/<int:width>/')
-@app.route('/<int:width>x<int:height>/')
-@app.route('/<int:width>x<int:height>/<color:color_bgd>/')
-@app.route('/<int:width>x<int:height>/<color:color_bgd>/<color:color_fgd>/')
-def placeholder(width, height=None, color_bgd="cccccc", color_fgd="909090"):
+@app.route('/<imgs:width>/')
+@app.route('/<imgs:width>x<imgs:height>/')
+@app.route('/<imgs:width>x<imgs:height>/<color:bgd>/')
+@app.route('/<imgs:width>x<imgs:height>/<color:bgd>/<color:fgd>/')
+def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
     if width is not None:
         if height is None:
             height = width
-        # check size limit
-        if width > 4000 or height > 4000:
-            abort(404)
         # get optionnal caption
         txt = request.args.get('text', None)
         # lobster for the shitty designers
         lobster = request.args.get('lobster', None)
         # processing image
-        im = pil_image(width, height, color_bgd, color_fgd, txt, lobster)
+        im = pil_image(width, height, bgd, fgd, txt, lobster)
         return serve_pil_image(im)
     abort(404)
 

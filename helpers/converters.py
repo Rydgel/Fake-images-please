@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import re
-from werkzeug.routing import BaseConverter
+from werkzeug.routing import BaseConverter, IntegerConverter
 
 
 class ColorConverter(BaseConverter):
@@ -11,4 +11,10 @@ class ColorConverter(BaseConverter):
         super(ColorConverter, self).__init__(url_map)
         self.regex = "([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})"
 
- 
+
+class ImgSizeConverter(IntegerConverter):
+
+    def __init__(self, url_map):
+        super(ImgSizeConverter, self).__init__(url_map, min=1, max=4000)
+
+        
