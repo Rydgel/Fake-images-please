@@ -49,21 +49,13 @@ def add_header(response):
     Varnish servers.
     """
     response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
-    response.headers['Cache-Control'] = 'public, max-age=36000'
+    response.headers['Cache-Control'] = 'public,max-age=36000'
     return response
 
 
 @app.route('/favicon.ico')
 def favicon():
     return app.send_static_file('favicon.ico')
-
-
-@app.route('/apple-touch-icon.png')
-@app.route('/apple-touch-icon<format>.png')
-def apple_touch(format=""):
-    """Shitty logo Apple"""
-    file = 'apple-touch-icon%s.png' % format
-    return app.send_static_file(file)
 
 
 @app.route('/<file_name>.txt')
@@ -80,9 +72,6 @@ def page_not_found(e):
 
 if __name__ == '__main__':
     # app.debug = True
-    # Gzipping, not worth it on my free Heroku cedar
-    # Cloudflare will do it for me.
-    # app.wsgi_app = Gzipper(app.wsgi_app, compresslevel=6)
     port = int(os.environ.get('PORT', 5000))
     # logging
     if not app.debug:
@@ -92,4 +81,3 @@ if __name__ == '__main__':
 
 
     app.run(host='0.0.0.0', port=port)
-

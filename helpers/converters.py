@@ -16,5 +16,3 @@ class ImgSizeConverter(IntegerConverter):
 
     def __init__(self, url_map):
         super(ImgSizeConverter, self).__init__(url_map, min=1, max=4000)
-
-        
