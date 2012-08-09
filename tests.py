@@ -6,6 +6,7 @@ from app import app
 from PIL import Image
 import cStringIO
 
+
 class AppTestCase(unittest.TestCase):
 
     def setUp(self):
@@ -61,10 +62,10 @@ class AppTestCase(unittest.TestCase):
         width, height = img.size
         self.assertEquals(width, 300)
         self.assertEquals(height, 300)
-        
+
         r = self.app.get('/5000/')
         self.assertEquals(r.status_code, 404)
-        
+
     def testPlaceholder2(self):
         r = self.app.get('/200x100/')
         self.assertEquals(r.status_code, 200)
@@ -73,10 +74,10 @@ class AppTestCase(unittest.TestCase):
         width, height = img.size
         self.assertEquals(width, 200)
         self.assertEquals(height, 100)
-        
+
         r = self.app.get('/4005x300/')
         self.assertEquals(r.status_code, 404)
-        
+
         r = self.app.get('/200x4050/')
         self.assertEquals(r.status_code, 404)
 
@@ -88,7 +89,7 @@ class AppTestCase(unittest.TestCase):
         width, height = img.size
         self.assertEquals(width, 200)
         self.assertEquals(height, 100)
-        
+
         r = self.app.get('/200x100/prout/')
         self.assertEquals(r.status_code, 404)
 
@@ -100,10 +101,10 @@ class AppTestCase(unittest.TestCase):
         width, height = img.size
         self.assertEquals(width, 200)
         self.assertEquals(height, 100)
-        
+
         r = self.app.get('/200x100/fff/ee')
         self.assertEquals(r.status_code, 404)
-        
+
         r = self.app.get('/200x100/eeeeeee/fff')
         self.assertEquals(r.status_code, 404)
 

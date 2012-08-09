@@ -18,18 +18,18 @@ def pil_image(width, height, color_bgd, color_fgd, txt=None, lobster=None):
     im = Image.new("RGB", size, hex_color_background)
     # Draw on the image
     draw = ImageDraw.Draw(im)
-    
+
     if txt is None:
         # regular text: width x height
-        txt = "%d x %d"  % (width, height)
-    
+        txt = "%d x %d" % (width, height)
+
     font_size = _calculate_font_size(width, height)
     if lobster is not None:
         font = ImageFont.truetype(LOB_PATH, font_size)
     else:
         font = ImageFont.truetype(FONT_PATH, font_size)
     w, h = font.getsize(txt)
-    text_coord = ( (width-w)/2, (height-h)/2 )
+    text_coord = ((width - w) / 2, (height - h) / 2)
     draw.text(text_coord, txt, fill=hex_color_foreground, font=font)
 
     del draw
@@ -46,4 +46,3 @@ def serve_pil_image(im):
     im.save(img_io, 'PNG')
     img_io.seek(0)
     return send_file(img_io, mimetype='image/png')
-

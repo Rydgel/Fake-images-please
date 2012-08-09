@@ -4,7 +4,7 @@
 import os
 import sys
 import logging
-from flask import Flask, render_template, abort, request
+from flask import Flask, render_template, request
 from helpers.decorators import cached
 from helpers.pil import pil_image, serve_pil_image
 from helpers.converters import ColorConverter, ImgSizeConverter
@@ -78,6 +78,5 @@ if __name__ == '__main__':
         handler = logging.StreamHandler(sys.stdout)
         handler.setLevel(logging.WARNING)
         app.logger.addHandler(handler)
-
 
     app.run(host='0.0.0.0', port=port)
