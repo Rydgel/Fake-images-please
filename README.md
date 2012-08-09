@@ -1,6 +1,6 @@
 # Fake Images Please?
 
-When designing websites, you may not have the images you need at first. But you already know the sizes and inserting some placeholders can help you better seeing the layout. Don’t waste your time making dummy images for your mockup or wireframe. Fakeimg.pl is a little tool that generates images with an URL. Choose the size, the colors, even the text. It’s free and [https://github.com/Rydgel/Fake-images-please](open-source).
+When designing websites, you may not have the images you need at first. But you already know the sizes and inserting some placeholders can help you better seeing the layout. Don’t waste your time making dummy images for your mockup or wireframe. Fakeimg.pl is a little tool that generates images with an URL. Choose the size, the colors, even the text. It’s free and [open-source](https://github.com/Rydgel/Fake-images-please).
 
 ## How to use
 
@@ -16,4 +16,4 @@ Use them directly in an image tag or a CSS background, or whatever you want to.
 
 ## About
 
-Made by Jérôme Mahuet, with love in 2012. Follow [http://twitter.com/phollow](@phollow) to stay up-to-date with the project, or if you just want to ask something. Feel free to make pull requests.
+Made by Jérôme Mahuet, with love in 2012. Follow [@phollow](http://twitter.com/phollow) to stay up-to-date with the project, or if you just want to ask something. Feel free to make pull requests.
