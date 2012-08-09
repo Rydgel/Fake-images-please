@@ -13,7 +13,7 @@
   <meta name="google-site-verification" content="DSRmxQoCKHK7G7hG6qmNdsb7S0qleY_USYv3ft97kts">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="{{ url_static('css/screen.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/screen.css') }}">
 
   <script src="http://use.typekit.com/ces4czl.js"></script>
   <script>try{Typekit.load();}catch(e){}</script>
@@ -31,7 +31,7 @@
 </p>
 <![endif]-->
 {% block content %}{% endblock %}
-<script src="{{ url_static('js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 <script>
   var _gaq=[['_setAccount','UA-32228537-1'],['_trackPageview']];
   (function(d,t){
