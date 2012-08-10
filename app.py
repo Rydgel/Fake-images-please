@@ -25,11 +25,11 @@ def index():
 
 
 @app.route('/<imgs:width>/')
+@app.route('/<imgs:width>/<color:bgd>/')
+@app.route('/<imgs:width>/<color:bgd>/<color:fgd>/')
 @app.route('/<imgs:width>x<imgs:height>/')
 @app.route('/<imgs:width>x<imgs:height>/<color:bgd>/')
 @app.route('/<imgs:width>x<imgs:height>/<color:bgd>/<color:fgd>/')
-@app.route('/<imgs:width>/<color:bgd>/')
-@app.route('/<imgs:width>/<color:bgd>/<color:fgd>/')
 def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
     """
     This endpoint generates the placeholder itself, based on arguments.
