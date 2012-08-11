@@ -37,7 +37,7 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
     """
     if height is None:
         height = width
-    # get optionnal caption
+    # get optional caption
     txt = request.args.get('text', None)
     # lobster for the shitty designers
     lobster = request.args.get('lobster', None)
