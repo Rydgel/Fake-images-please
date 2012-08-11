@@ -3,3 +3,7 @@ venv
 .env
 .DS_Store
 .sass-cache
+bin
+lib
+include
+man
