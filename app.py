@@ -11,9 +11,9 @@ from helpers.converters import ColorConverter, ImgSizeConverter
 
 
 app = Flask(__name__)
-# Custom converter for matching hexadecimal colors
+# Custom converter for matching hexadecimal colors.
 app.url_map.converters['color'] = ColorConverter
-# Custom converter for not having an image > 4000px
+# Custom converter for not having an image > 4000px.
 app.url_map.converters['imgs'] = ImgSizeConverter
 
 
