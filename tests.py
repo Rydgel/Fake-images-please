@@ -4,7 +4,7 @@
 import unittest
 from app import app
 from PIL import Image
-import cStringIO
+import StringIO
 
 
 class AppTestCase(unittest.TestCase):
@@ -14,7 +14,7 @@ class AppTestCase(unittest.TestCase):
         self.app = app.test_client()
 
     def _open_image(self, image_data):
-        strio = cStringIO.StringIO()
+        strio = StringIO.StringIO()
         strio.write(image_data)
         strio.seek(0)
         return Image.open(strio)

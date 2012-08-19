@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-import cStringIO
+import StringIO
 from PIL import Image, ImageDraw, ImageFont
 from flask import send_file
 
@@ -47,7 +47,7 @@ def serve_pil_image(im):
     """
     Serve the image created directly on the fly
     """
-    img_io = cStringIO.StringIO()
+    img_io = StringIO.StringIO()
     im.save(img_io, 'PNG')
     img_io.seek(0)
     return send_file(img_io, mimetype='image/png')
