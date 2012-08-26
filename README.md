@@ -12,7 +12,29 @@ You just have to put your image size after our URL. Only the first parameter is 
     <img src="http://fakeimg.pl/350x200/ff0000/000">
     <img src="http://fakeimg.pl/350x200/?text=Hello">
 
-Use them directly in an image tag or a CSS background, or whatever you want to. 
+Use them directly in an image tag or a CSS background, or whatever you want to.
+
+## Set up your own instance
+
+Prerequisites: Python, pip (`easy_install pip` if you don’t already have it.).
+
+1. First you need to clone the project
+
+       git clone https://github.com/Rydgel/Fake-images-please.git
+
+2. Install all dependencies with `pip`
+
+       pip install -r requirements.txt
+
+3. Run the tests
+
+       python tests.py
+
+4. Run the server
+
+       python app.py
+
+5. Open the browser at `http://127.0.0.1:5000`
 
 ## About
 
