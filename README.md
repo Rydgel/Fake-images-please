@@ -20,19 +20,19 @@ Prerequisites: Python, pip (`easy_install pip` if you don’t already have it.).
 
 1. First you need to clone the project
 
-       git clone https://github.com/Rydgel/Fake-images-please.git
+       `git clone https://github.com/Rydgel/Fake-images-please.git`
 
 2. Install all dependencies with `pip`
 
-       pip install -r requirements.txt
+       `pip install -r requirements.txt`
 
 3. Run the tests
 
-       python tests.py
+       `python tests.py`
 
 4. Run the server
 
-       python app.py
+       `python app.py`
 
 5. Open the browser at `http://127.0.0.1:5000`
 
