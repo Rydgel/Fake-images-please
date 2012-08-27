@@ -49,7 +49,7 @@ def serve_pil_image(im):
 
 def _calculate_font_size(width, height):
     min_side = min(width, height)
-    return int(min_side / 5)
+    return int(min_side / 4)
 
 
 def _choose_font(font_size, font=None):
