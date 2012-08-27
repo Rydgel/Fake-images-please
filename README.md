@@ -14,6 +14,10 @@ You just have to put your image size after our URL. Only the first parameter is 
 
 Use them directly in an image tag or a CSS background, or whatever you want to.
 
+## Change font
+
+There is one *bonus* font you can choose passing `font=lobster` in the URL.
+
 ## Set up your own instance
 
 Prerequisites:
