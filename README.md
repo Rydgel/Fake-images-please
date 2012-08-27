@@ -33,7 +33,7 @@ Prerequisites:
 
        `pip install -r requirements.txt`
        
-You may need to have this command run by a priviledged user.
+You may need to have this command run by a privileged user.
 
 3. Run the tests
 
