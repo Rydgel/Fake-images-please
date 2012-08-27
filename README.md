@@ -11,6 +11,7 @@ You just have to put your image size after our URL. Only the first parameter is 
     <img src="http://fakeimg.pl/250x100/ff0000/">
     <img src="http://fakeimg.pl/350x200/ff0000/000">
     <img src="http://fakeimg.pl/350x200/?text=Hello">
+    <img src="http://fakeimg.pl/350x200/?text=World&font=lobster">
 
 Use them directly in an image tag or a CSS background, or whatever you want to.
 
