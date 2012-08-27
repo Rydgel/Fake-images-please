@@ -16,7 +16,14 @@ Use them directly in an image tag or a CSS background, or whatever you want to.
 
 ## Set up your own instance
 
-Prerequisites: Python, pip (`easy_install pip` if you don’t already have it.).
+Prerequisites:
+
+* Python
+* Python development headers
+* Memcached
+* Memcached development headers
+* pip (`easy_install pip` if you don’t already have it.)
+* A compilation chain (like gcc or else)
 
 1. First you need to clone the project
 
@@ -25,6 +32,8 @@ Prerequisites: Python, pip (`easy_install pip` if you don’t already have it.).
 2. Install all dependencies with `pip`
 
        `pip install -r requirements.txt`
+       
+You may need to have this command run by a priviledged user.
 
 3. Run the tests
 
