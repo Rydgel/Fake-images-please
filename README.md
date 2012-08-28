@@ -25,10 +25,13 @@ Prerequisites:
 
 * Python
 * Python development headers
-* Memcached
-* Memcached development headers
 * pip (`easy_install pip` if you don’t already have it.)
 * A compilation chain (like gcc or else)
+
+Optional:
+
+* Memcached
+* Memcached development headers
 
 1. First you need to clone the project
 
@@ -36,9 +39,9 @@ Prerequisites:
 
 2. Install all dependencies with `pip`
 
-       `pip install -r requirements.txt`
+       `pip install Flask Pillow`
        
-	   You may need to have this command run by a privileged user.
+	   You may need to run this command as a privileged user.
 
 3. Run the tests
 
