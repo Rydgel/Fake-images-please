@@ -3,22 +3,11 @@
 
 import os
 from functools import wraps
-from htmlmin.minify import html_minify
 from flask import request
 try:
     import pylibmc
 except ImportError:
     pass
-
-
-def minified(f):
-    @wraps(f)
-    def minified_view(*args, **kwargs):
-        rv = f(*args, **kwargs)
-        if type(rv) == unicode:
-            return html_minify(rv.encode('utf-8'))
-        return rv
-    return minified_view
 
 
 def cached(timeout, cache_key):
