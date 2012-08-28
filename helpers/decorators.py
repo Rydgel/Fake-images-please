@@ -33,7 +33,7 @@ def cached(timeout, cache_key):
                 return rv
             except Exception, e:
                 # if memcached is not available/crashed
-                # make it works without caching
+                # make it work without caching
                 return f(*args, **kwargs)
         return decorated_function
     return decorator
