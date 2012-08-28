@@ -39,7 +39,7 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
     # Stathat: count the image generated
     stathat = StatHat()
     stathat_key = os.environ.get('STATHAT_KEY', "")
-    stathat.ez_post_count(os.environ.get(stathat_key, 'Fakeimg generated', 1)
+    stathat.ez_post_count(stathat_key, 'Fakeimg generated', 1)
 
     if height is None:
         height = width
