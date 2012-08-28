@@ -8,6 +8,7 @@ from flask import Flask, render_template, request
 from helpers.decorators import cached
 from helpers.pil import pil_image, serve_pil_image
 from helpers.converters import ColorConverter, ImgSizeConverter
+from helpers.stathat import StatHat
 
 
 app = Flask(__name__)
@@ -35,6 +36,10 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
     This endpoint generates the placeholder itself, based on arguments.
     If the height is missing, just make the image square.
     """
+    # Stathat: count the image generated
+    stathat = StatHat()
+    stathat.ez_post_count('jerome.mahuet@gmail.com', 'Fakeimg generated', 1)
+
     if height is None:
         height = width
     # get optional caption
