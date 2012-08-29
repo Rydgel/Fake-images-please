@@ -36,10 +36,11 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
     This endpoint generates the placeholder itself, based on arguments.
     If the height is missing, just make the image square.
     """
-    # Stathat: count the image generated
-    stathat = StatHat()
-    stathat_key = os.environ.get('STATHAT_KEY', "")
-    stathat.ez_post_count(stathat_key, 'Fakeimg generated', 1)
+    stathat_key = os.environ.get('STATHAT_KEY', None)
+    if stathat_key:
+        # Stathat: count the image generated
+        stathat = StatHat()
+        stathat.ez_post_count(stathat_key, 'Fakeimg generated', 1)
 
     if height is None:
         height = width
