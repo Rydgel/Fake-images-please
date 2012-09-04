@@ -5,7 +5,7 @@ Pillow==1.7.7
 Pygments==1.5
 Werkzeug==0.8.3
 blinker==1.2
-tornado==2.3
+tornado==2.4
 gunicorn==0.14.6
 newrelic==1.4.0.137
 nose==1.1.2
