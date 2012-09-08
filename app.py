@@ -44,11 +44,12 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
 
     if height is None:
         height = width
-    # get optional caption
-    txt = request.args.get('text', None)
-    # lobster for the shitty designers
+    # get optional caption, default is width X height
+    # fakeimg.pl/400x400/?text=whosmad
+    txt = request.args.get('text', "%d x %d" % (width, height))
+    # grab the font, default is yanone
     # fakeimg.pl/400x400/?font=lobster
-    font = request.args.get('font', None)
+    font = request.args.get('font', 'yanone')
     # processing image
     im = pil_image(width, height, bgd, fgd, txt, font)
     return serve_pil_image(im)

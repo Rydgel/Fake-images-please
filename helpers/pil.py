@@ -6,10 +6,6 @@ import StringIO
 from PIL import Image, ImageDraw, ImageFont
 from flask import send_file
 
-dirname = os.path.dirname
-FONT_PATH = '%s/font/YanoneKaffeesatz-Bold.otf' % dirname(dirname(__file__))
-LOB_PATH = '%s/font/Lobster 1.4.otf' % dirname(dirname(__file__))
-
 
 def pil_image(width, height, color_bgd, color_fgd, txt=None, font=None):
     """
@@ -21,10 +17,6 @@ def pil_image(width, height, color_bgd, color_fgd, txt=None, font=None):
     im = Image.new("RGB", size, hex_color_background)
     # Draw on the image
     draw = ImageDraw.Draw(im)
-
-    if txt is None:
-        # regular text: width x height
-        txt = "%d x %d" % (width, height)
 
     font_size = _calculate_font_size(width, height)
     font = _choose_font(font_size, font)
@@ -56,7 +48,6 @@ def _choose_font(font_size, font=None):
     """
     For those who like Lobster...
     """
-    if font == 'lobster':
-        return ImageFont.truetype(LOB_PATH, font_size)
-
-    return ImageFont.truetype(FONT_PATH, font_size)
+    dirname = os.path.dirname
+    font_path = '%s/font/%s.otf' % (dirname(dirname(__file__)), font)
+    return ImageFont.truetype(font_path, font_size)
