@@ -10,13 +10,17 @@ class StatHat:
         return resp.read()
 
     def post_value(self, user_key, stat_key, value):
-        return self.http_post('/v', {'key': stat_key, 'ukey': user_key, 'value': value})
+        data = {'key': stat_key, 'ukey': user_key, 'value': value}
+        return self.http_post('/v', data)
 
     def post_count(self, user_key, stat_key, count):
-        return self.http_post('/c', {'key': stat_key, 'ukey': user_key, 'count': count})
+        data = {'key': stat_key, 'ukey': user_key, 'count': count}
+        return self.http_post('/c', data)
 
     def ez_post_value(self, ezkey, stat_name, value):
-        return self.http_post('/ez', {'ezkey': ezkey, 'stat': stat_name, 'value': value})
+        data = {'ezkey': ezkey, 'stat': stat_name, 'value': value}
+        return self.http_post('/ez', data)
 
     def ez_post_count(self, ezkey, stat_name, count):
-        return self.http_post('/ez', {'ezkey': ezkey, 'stat': stat_name, 'count': count})
+        data = {'ezkey': ezkey, 'stat': stat_name, 'count': count}
+        return self.http_post('/ez', data)

@@ -42,7 +42,7 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
         stathat = StatHat()
         stathat.ez_post_count(stathat_key, 'Fakeimg generated', 1)
 
-    if height is None:
+    if not height:
         height = width
     # get optional caption, default is width X height
     # fakeimg.pl/400x400/?text=whosmad
