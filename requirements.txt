@@ -11,3 +11,5 @@ newrelic==1.4.0.137
 nose==1.1.2
 pylibmc==1.2.3
 wsgiref==0.1.2
+raven==2.0
+blinker==1.2
