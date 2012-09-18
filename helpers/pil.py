@@ -50,4 +50,8 @@ def _choose_font(font_size, font=None):
     """
     dirname = os.path.dirname
     font_path = '%s/font/%s.otf' % (dirname(dirname(__file__)), font)
-    return ImageFont.truetype(font_path, font_size)
+    try:
+        return ImageFont.truetype(font_path, font_size)
+    except IOError, e:
+        # font not found: fallback
+        return _choose_font(font_size, 'yanone')
