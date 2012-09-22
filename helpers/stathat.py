@@ -4,10 +4,14 @@ import urllib2
 class StatHat:
 
     def http_post(self, path, data):
-        pdata = urllib.urlencode(data)
-        req = urllib2.Request('http://api.stathat.com' + path, pdata)
-        resp = urllib2.urlopen(req)
-        return resp.read()
+        try:
+            pdata = urllib.urlencode(data)
+            req = urllib2.Request('http://api.stathat.com' + path, pdata)
+            resp = urllib2.urlopen(req)
+            return resp.read()
+        except HTTPError, e:
+            # StatHat error
+            return None
 
     def post_value(self, user_key, stat_key, value):
         data = {'key': stat_key, 'ukey': user_key, 'value': value}
