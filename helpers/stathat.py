@@ -9,7 +9,7 @@ class StatHat:
             req = urllib2.Request('http://api.stathat.com' + path, pdata)
             resp = urllib2.urlopen(req)
             return resp.read()
-        except HTTPError, e:
+        except urllib2.HTTPError, e:
             # StatHat error
             return None
 
