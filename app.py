@@ -11,7 +11,6 @@ from flask import Flask, render_template, request, abort
 from helpers.decorators import cached
 from helpers.pil import pil_image, serve_pil_image
 from helpers.converters import ColorConverter, ImgSizeConverter
-from helpers.stathat import StatHat
 try:
     from raven.contrib.flask import Sentry
 except ImportError:
@@ -45,12 +44,6 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
     This endpoint generates the placeholder itself, based on arguments.
     If the height is missing, just make the image square.
     """
-    stathat_key = os.environ.get('STATHAT_KEY', None)
-    if stathat_key:
-        # Stathat: count the image generated
-        stathat = StatHat()
-        stathat.ez_post_count(stathat_key, 'Fakeimg generated', 1)
-
     if not height:
         height = width
     # get optional caption, default is width X height
