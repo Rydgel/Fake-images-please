@@ -4,7 +4,10 @@
 import os
 import sys
 import logging
-from flask import Flask, render_template, request
+import datetime
+import hashlib
+import flask
+from flask import Flask, render_template, request, abort
 from helpers.decorators import cached
 from helpers.pil import pil_image, serve_pil_image
 from helpers.converters import ColorConverter, ImgSizeConverter
@@ -20,6 +23,8 @@ app = Flask(__name__)
 app.url_map.converters['color'] = ColorConverter
 # Custom converter for not having an image > 4000px
 app.url_map.converters['imgs'] = ImgSizeConverter
+# Generate Last-Modified timestamp
+launch_date = datetime.datetime.now()
 
 
 @app.route('/')
@@ -59,7 +64,19 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
     return serve_pil_image(im)
 
 
-# basic stuff
+# caching stuff
+@app.before_request
+def handle_cache():
+    # if resource is the same, return 304
+    # we test Etag first, as it's a strong validator
+    etag = hashlib.sha1(request.url).hexdigest()
+    if request.headers.get('If-None-Match') == etag:
+        return flask.Response(status=304)
+    # then we try with Last-Modified
+    if request.headers.get('If-Modified-Since') == str(launch_date):
+        return flask.Response(status=304)
+
+
 @app.after_request
 def add_header(response):
     """
@@ -69,6 +86,8 @@ def add_header(response):
     """
     response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
     response.headers['Cache-Control'] = 'public,max-age=36000'
+    response.headers['Last-Modified'] = launch_date
+    response.headers['Etag'] = hashlib.sha1(request.url).hexdigest()
     return response
 
 
@@ -98,7 +117,7 @@ if SENTRY_DSN:
 
 if __name__ == '__main__':
     # app.debug = True
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 8000))
     # logging
     if not app.debug:
         handler = logging.StreamHandler(sys.stdout)
