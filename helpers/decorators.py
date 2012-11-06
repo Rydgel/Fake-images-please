@@ -3,7 +3,6 @@
 
 import os
 from functools import wraps
-from flask import request
 try:
     import pylibmc
 except ImportError:
@@ -31,7 +30,7 @@ def cached(timeout, cache_key):
                 rv = f(*args, **kwargs)
                 mc.set(cache_key, rv, timeout)
                 return rv
-            except Exception, e:
+            except Exception:
                 # if memcached is not available/crashed
                 # make it work without caching
                 return f(*args, **kwargs)

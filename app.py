@@ -7,7 +7,7 @@ import logging
 import datetime
 import hashlib
 import flask
-from flask import Flask, render_template, request, abort
+from flask import Flask, render_template, request
 from helpers.decorators import cached
 from helpers.pil import pil_image, serve_pil_image
 from helpers.converters import ColorConverter, ImgSizeConverter
