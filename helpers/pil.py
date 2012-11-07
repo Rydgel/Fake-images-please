@@ -12,8 +12,8 @@ def pil_image(width, height, color_bgd, color_fgd, txt=None, font=None):
     Image creation using Pillow (PIL fork)
     """
     size = (width, height)
-    hex_color_background = "#%s" % color_bgd
-    hex_color_foreground = "#%s" % color_fgd
+    hex_color_background = "#{0}".format(color_bgd)
+    hex_color_foreground = "#{0}".format(color_fgd)
     im = Image.new("RGB", size, hex_color_background)
     # Draw on the image
     draw = ImageDraw.Draw(im)
@@ -49,7 +49,7 @@ def _choose_font(font_size, font=None):
     For those who like Lobster...
     """
     dirname = os.path.dirname
-    font_path = '%s/font/%s.otf' % (dirname(dirname(__file__)), font)
+    font_path = '{0}/font/{1}.otf'.format(dirname(dirname(__file__)), font)
     try:
         return ImageFont.truetype(font_path, font_size)
     except IOError:

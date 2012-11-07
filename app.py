@@ -48,7 +48,7 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
         height = width
     # get optional caption, default is width X height
     # fakeimg.pl/400x400/?text=whosmad
-    txt = request.args.get('text', "%d x %d" % (width, height))
+    txt = request.args.get('text', "{0} x {1}".format(width, height))
     # grab the font, default is yanone
     # fakeimg.pl/400x400/?font=lobster
     font = request.args.get('font', 'yanone')
@@ -92,7 +92,7 @@ def favicon():
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):
     """Send your static text file."""
-    file_dot_text = '%s.txt' % file_name
+    file_dot_text = '{0}.txt'.format(file_name)
     return app.send_static_file(file_dot_text)
 
 
