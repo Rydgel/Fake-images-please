@@ -8,9 +8,7 @@ from flask import send_file
 
 
 def pil_image(width, height, color_bgd, color_fgd, txt=None, font=None):
-    """
-    Image creation using Pillow (PIL fork)
-    """
+    """Image creation using Pillow (PIL fork)"""
     size = (width, height)
     hex_color_background = "#{0}".format(color_bgd)
     hex_color_foreground = "#{0}".format(color_fgd)
@@ -30,9 +28,7 @@ def pil_image(width, height, color_bgd, color_fgd, txt=None, font=None):
 
 
 def serve_pil_image(im):
-    """
-    Serve the image created directly on the fly
-    """
+    """Serve the image created directly on the fly"""
     img_io = StringIO.StringIO()
     im.save(img_io, 'PNG')
     img_io.seek(0)
@@ -45,9 +41,7 @@ def _calculate_font_size(width, height):
 
 
 def _choose_font(font_size, font=None):
-    """
-    For those who like Lobster...
-    """
+    """Choosing a font, the fallback is Yanone"""
     dirname = os.path.dirname
     font_path = '{0}/font/{1}.otf'.format(dirname(dirname(__file__)), font)
     try:

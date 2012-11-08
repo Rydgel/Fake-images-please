@@ -40,8 +40,7 @@ def index():
 @app.route('/<imgs:width>x<imgs:height>/<color:bgd>/')
 @app.route('/<imgs:width>x<imgs:height>/<color:bgd>/<color:fgd>/')
 def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
-    """
-    This endpoint generates the placeholder itself, based on arguments.
+    """This endpoint generates the placeholder itself, based on arguments.
     If the height is missing, just make the image square.
     """
     if not height:
@@ -60,7 +59,7 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
 # caching stuff
 @app.before_request
 def handle_cache():
-    # if resource is the same, return 304
+    """if resource is the same, return 304"""
     # we test Etag first, as it's a strong validator
     etag = hashlib.sha1(request.url).hexdigest()
     if request.headers.get('If-None-Match') == etag:
@@ -72,8 +71,7 @@ def handle_cache():
 
 @app.after_request
 def add_header(response):
-    """
-    Add headers to both force latest IE rendering engine or Chrome Frame,
+    """Add headers to both force latest IE rendering engine or Chrome Frame,
     and also to cache the rendered page for 10 hours. Should be served by
     Varnish servers.
     """

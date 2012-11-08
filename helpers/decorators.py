@@ -10,8 +10,7 @@ except ImportError:
 
 
 def cached(timeout, cache_key):
-    """
-    Oh hai I iz a wonderful decorator who checks the cache and return it
+    """Oh hai I iz a wonderful decorator who checks the cache and return it
     otherwise execute dat parent function and put it into the cache. umad
     """
     def decorator(f):
