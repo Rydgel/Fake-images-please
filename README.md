@@ -19,6 +19,10 @@ Use them directly in an image tag or a CSS background, or whatever you want to.
 
 There are three *bonus* fonts you can choose by passing `font=lobster`, `font=bebas`, or `font=museo` in the URL.
 
+## Retina mode
+
+Just pass the `retina=1` in the URL. Your image will be 2 times bigger.
+
 ## Set up your own instance
 
 Prerequisites:

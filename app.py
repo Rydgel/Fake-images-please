@@ -51,6 +51,11 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
     # grab the font, default is yanone
     # fakeimg.pl/400x400/?font=lobster
     font = request.args.get('font', 'yanone')
+    # retina mode, just make the image twice bigger
+    retina = request.args.get('retina', None)
+    if retina:
+        width = 2 * width
+        height = 2 * height
     # processing image
     im = pil_image(width, height, bgd, fgd, txt, font)
     return serve_pil_image(im)
