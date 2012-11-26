@@ -55,7 +55,7 @@ body {
 header[role=banner] {
   @include margin-leader(.5);
   border-color: $hl-color;
-  
+
   h1 {
     @include margin-leader(.5);
     @include margin-trailer(.1);
@@ -65,12 +65,12 @@ header[role=banner] {
     color: $hl-color;
     @include margin-trailer(0.66);
   }
-  
+
   section[role=share] {
     width: 66px;
-    
+
     @include adjust-font-size-to(20px);
-    
+
     @include at-breakpoint($break) {
       float: right;
     }
@@ -88,7 +88,7 @@ header[role=banner] {
 
 .container {
   @include container;
-  @include at-breakpoint($break) { 
+  @include at-breakpoint($break) {
     @include container;
   }
 
