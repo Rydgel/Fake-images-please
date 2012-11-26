@@ -17,7 +17,7 @@ Use them directly in an image tag or a CSS background, or whatever you want to.
 
 ## Change font
 
-There is one *bonus* font you can choose passing `font=lobster` in the URL.
+There are three *bonus* fonts you can choose by passing `font=lobster`, `font=bebas`, or `font=museo` in the URL.
 
 ## Set up your own instance
 
@@ -40,7 +40,7 @@ Optional:
 2. Install all dependencies with `pip`
 
        `pip install Flask Pillow`
-       
+
 	   You may need to run this command as a privileged user.
 
 3. Run the tests
