@@ -43,8 +43,7 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
     """This endpoint generates the placeholder itself, based on arguments.
     If the height is missing, just make the image square.
     """
-    if not height:
-        height = width
+    height = height or width
     # get optional caption, default is width X height
     # fakeimg.pl/400x400/?text=whosmad
     txt = request.args.get('text', "{0} x {1}".format(width, height))
@@ -52,10 +51,8 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
     # fakeimg.pl/400x400/?font=lobster
     font = request.args.get('font', 'yanone')
     # retina mode, just make the image twice bigger
-    retina = request.args.get('retina', None)
-    if retina:
-        width = 2 * width
-        height = 2 * height
+    if request.args.get('retina'):
+        width, height = [x * 2 for x in [width, height]]
     # processing image
     im = pil_image(width, height, bgd, fgd, txt, font)
     return serve_pil_image(im)
@@ -105,7 +102,7 @@ def page_not_found(e):
 
 
 # Sentry
-SENTRY_DSN = os.environ.get('SENTRY_DSN', None)
+SENTRY_DSN = os.environ.get('SENTRY_DSN')
 if SENTRY_DSN:
     app.config['SENTRY_DSN'] = SENTRY_DSN
     sentry = Sentry(app)
