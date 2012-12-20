@@ -92,7 +92,7 @@ def favicon():
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):
     """Send your static text file."""
-    file_dot_text = '{0}.txt'.format(file_name)
+    file_dot_text = u'{0}.txt'.format(file_name)
     return app.send_static_file(file_dot_text)
 
 
