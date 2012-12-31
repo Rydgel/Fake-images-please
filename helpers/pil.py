@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import absolute_import, unicode_literals, division
 import os
 import StringIO
 from PIL import Image, ImageDraw, ImageFont
@@ -42,7 +43,7 @@ def _calculate_font_size(width, height):
 def _choose_font(font_size, font=None):
     """Choosing a font, the fallback is Yanone"""
     dirname = os.path.dirname
-    font_path = u'{0}/font/{1}.otf'.format(dirname(dirname(__file__)), font)
+    font_path = '{0}/font/{1}.otf'.format(dirname(dirname(__file__)), font)
     try:
         return ImageFont.truetype(font_path, font_size)
     except IOError:
