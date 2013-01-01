@@ -3,7 +3,7 @@ Jinja2==2.6
 Pillow==1.7.8
 Werkzeug==0.8.3
 blinker==1.2
-tornado==2.4.1
+gevent==0.13.8
 gunicorn==0.17.0
 newrelic==1.9.0.21
 nose==1.2.1
