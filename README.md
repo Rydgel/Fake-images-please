@@ -29,7 +29,7 @@ Prerequisites:
 
 * Python
 * Python development headers
-* pip (`easy_install pip` if you don’t already have it.)
+* pip
 * A compilation chain (like gcc or else)
 
 Optional:
@@ -37,25 +37,17 @@ Optional:
 * Memcached
 * Memcached development headers
 
-1. First you need to clone the project
-
-       `git clone https://github.com/Rydgel/Fake-images-please.git`
-
-2. Install all dependencies with `pip`
-
-       `pip install Flask Pillow`
-
-	   You may need to run this command as a privileged user.
-
-3. Run the tests
-
-       `python tests.py`
-
-4. Run the server
-
-       `python app.py`
-
-5. Open the browser at `http://127.0.0.1:5000`
+```bash
+# First you need to clone the project
+$ git clone https://github.com/Rydgel/Fake-images-please.git
+# Install all dependencies with pip
+$ pip install Flask Pillow
+# Run the tests
+$ python tests.py
+# Run the server
+$ python app.py
+# Open the browser at http://127.0.0.1:5000
+```
 
 ## About
 
