@@ -6,12 +6,14 @@ When designing websites, you may not have the images you need at first. But you 
 
 You just have to put your image size after our URL. Only the first parameter is mandatory. There are options too, you can pass a text, or change some colors. Colors must be hexadecimal, the first one is the background color. The text can be passed with the _text_ GET variable. Here are some examples you can look at:
 
-    <img src="http://fakeimg.pl/300/">
-    <img src="http://fakeimg.pl/250x100/">
-    <img src="http://fakeimg.pl/250x100/ff0000/">
-    <img src="http://fakeimg.pl/350x200/ff0000/000">
-    <img src="http://fakeimg.pl/350x200/?text=Hello">
-    <img src="http://fakeimg.pl/350x200/?text=World&font=lobster">
+```html
+<img src="http://fakeimg.pl/300/">
+<img src="http://fakeimg.pl/250x100/">
+<img src="http://fakeimg.pl/250x100/ff0000/">
+<img src="http://fakeimg.pl/350x200/ff0000/000">
+<img src="http://fakeimg.pl/350x200/?text=Hello">
+<img src="http://fakeimg.pl/350x200/?text=World&font=lobster">
+```
 
 Use them directly in an image tag or a CSS background, or whatever you want to.
 
