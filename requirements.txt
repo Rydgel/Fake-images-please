@@ -1,10 +1,10 @@
 Flask==0.9
 Jinja2==2.6
-Pillow==1.7.8
+Pillow==2.0.0
 Werkzeug==0.8.3
 blinker==1.2
-tornado==2.4.1
+tornado==3.0
 gunicorn==0.17.2
 newrelic==1.10.2.38
 pylibmc==1.2.3
-raven==3.1.15
+raven==3.3.2
