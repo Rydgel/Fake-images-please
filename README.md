@@ -21,6 +21,10 @@ Use them directly in an image tag or a CSS background, or whatever you want to.
 
 There are three *bonus* fonts you can choose by passing `font=lobster`, `font=bebas`, or `font=museo` in the URL.
 
+## Change font size
+
+You can manually change the font size by passing in the URL `font_size=12`.
+
 ## Retina mode
 
 Just pass the `retina=1` in the URL. Your image will be 2 times bigger.
