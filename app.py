@@ -8,9 +8,9 @@ import logging
 import datetime
 import hashlib
 import flask
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
 from helpers.decorators import cached
-from helpers.pil import pil_image, serve_pil_image
+from helpers.fakeimg import FakeImg
 from helpers.converters import ColorConverter, ImgSizeConverter
 try:
     from raven.contrib.flask import Sentry
@@ -44,19 +44,20 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
     """This endpoint generates the placeholder itself, based on arguments.
     If the height is missing, just make the image square.
     """
-    height = height or width
-    # get optional caption, default is width X height
-    # fakeimg.pl/400x400/?text=whosmad
-    txt = request.args.get('text', "{0} x {1}".format(width, height))
-    # grab the font, default is yanone
-    # fakeimg.pl/400x400/?font=lobster
-    font = request.args.get('font', 'yanone')
-    # retina mode, just make the image twice bigger
-    if request.args.get('retina'):
-        width, height = [x * 2 for x in [width, height]]
     # processing image
-    im = pil_image(width, height, bgd, fgd, txt, font)
-    return serve_pil_image(im)
+    args = {
+        "width": width,
+        "height": height or width,
+        "background_color": bgd,
+        "foreground_color": fgd,
+        "text": request.args.get('text'),
+        "font_name": request.args.get('font'),
+        "font_size": request.args.get('font_size'),
+        "retina": "retina" in request.args
+    }
+    image = FakeImg(**args)
+    # return static file
+    return send_file(image.raw, mimetype='image/png')
 
 
 # caching stuff

@@ -118,5 +118,32 @@ class AppTestCase(unittest.TestCase):
         self.assertEquals(width, 400)
         self.assertEquals(height, 200)
 
+    def testFontsize(self):
+        r = self.app.get('/200x100/eee/000/?font_size=1')
+        self.assertEquals(r.status_code, 200)
+        self.assertEquals(r.mimetype, 'image/png')
+        img = self._open_image(r.data)
+        width, height = img.size
+        self.assertEquals(width, 200)
+        self.assertEquals(height, 100)
+
+        # Make it work with wrong value (ie. not crash)
+
+        r = self.app.get('/200x100/eee/000/?font_size=0')
+        self.assertEquals(r.status_code, 200)
+        self.assertEquals(r.mimetype, 'image/png')
+        img = self._open_image(r.data)
+        width, height = img.size
+        self.assertEquals(width, 200)
+        self.assertEquals(height, 100)
+
+        r = self.app.get('/200x100/eee/000/?font_size=-1')
+        self.assertEquals(r.status_code, 200)
+        self.assertEquals(r.mimetype, 'image/png')
+        img = self._open_image(r.data)
+        width, height = img.size
+        self.assertEquals(width, 200)
+        self.assertEquals(height, 100)
+
 if __name__ == '__main__':
     unittest.main()
