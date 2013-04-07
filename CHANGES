@@ -1,0 +1,26 @@
+Fakeimg Changelog
+===============
+
+Version 0.4
+-----------
+- Font size settings
+- Adding a changelog
+
+Version 0.3.1
+-------------
+Bugfix release: utf-8 encoding issues on some parameters.
+
+Version 0.3
+-----------
+Retina display mode
+
+Version 0.2
+-----------
+New fonts: Bebas, Museo
+
+Version 0.1.1
+Various bug fixes
+
+Version 0.1
+-----------
+First release.
