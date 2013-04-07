@@ -7,14 +7,42 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 class FakeImg():
-    """A Fake Image"""
+    """A Fake Image.
+
+    This class uses PIL to create an image based on passed parameters.
+
+    Attributes:
+        pil_image (PIL.Image.Image): PIL object.
+        raw (str): Real image in PNG format.
+    """
     def __init__(self, width, height, background_color, foreground_color,
                  text=None,
                  font_name=None,
                  font_size=None,
                  retina=False):
+        """Init FakeImg with parameters.
+
+        Args:
+            width (int): The width of the image.
+            height (int): The height of the image.
+            background_color (str): The background color of the image. It
+                should be in web hexadecimal format.
+                Example: #FFF, #123456.
+            foreground_color (str): The text color of the image. It should be
+                in web hexadecimal format.
+                Example: #FFF, #123456.
+            text (str): Optional. The actual text which will be drawn on the
+                image.
+                Default: "{0} x {1}".format(width, height)
+            font_name (str): Optional. The font name to use.
+                Default: "yanone".
+                Fallback to "yanone" if font not found.
+            font_size (int): Optional. The font size to use.
+                Default value is calculated based on the image dimension.
+            retina (bool): Optional. Wether to use retina display or not.
+                It basically just multiplies dimension of the image by 2.
+        """
         if retina:
-            # retina mode, just make the image twice bigger
             self.width, self.height = [x * 2 for x in [width, height]]
         else:
             self.width, self.height = width, height
