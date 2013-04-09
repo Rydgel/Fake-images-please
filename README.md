@@ -57,4 +57,4 @@ $ python app.py
 
 ## About
 
-Made by Jérôme Mahuet, with love in 2012. Follow [@phollow](http://twitter.com/phollow) to stay up-to-date with the project, or if you just want to ask something. Feel free to make pull requests.
+Made by Jérôme Mahuet, with love in 2013. Follow [@phollow](http://twitter.com/phollow) to stay up-to-date with the project, or if you just want to ask something. Feel free to make pull requests.
