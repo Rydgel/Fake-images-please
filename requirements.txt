@@ -3,8 +3,8 @@ Jinja2==2.6
 Pillow==2.0.0
 Werkzeug==0.8.3
 blinker==1.2
-tornado==3.0
+tornado==3.0.1
 gunicorn==0.17.2
-newrelic==1.10.2.38
+newrelic==1.11.0.55
 pylibmc==1.2.3
-raven==3.3.2
+raven==3.3.3

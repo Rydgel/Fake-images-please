@@ -40,7 +40,7 @@ def index():
 @app.route('/<imgs:width>x<imgs:height>/')
 @app.route('/<imgs:width>x<imgs:height>/<color:bgd>/')
 @app.route('/<imgs:width>x<imgs:height>/<color:bgd>/<color:fgd>/')
-def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
+def placeholder(width, height=None, background="cccccc", foreground="909090"):
     """This endpoint generates the placeholder itself, based on arguments.
     If the height is missing, just make the image square.
     """
@@ -48,8 +48,8 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
     args = {
         "width": width,
         "height": height or width,
-        "background_color": bgd,
-        "foreground_color": fgd,
+        "background_color": background,
+        "foreground_color": foreground,
         "text": request.args.get('text'),
         "font_name": request.args.get('font'),
         "font_size": request.args.get('font_size'),
