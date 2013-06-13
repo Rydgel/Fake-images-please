@@ -65,7 +65,8 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
 def handle_cache():
     """if resource is the same, return 304"""
     # we test Etag first, as it's a strong validator
-    etag = hashlib.sha1(request.url).hexdigest()
+    url_bytes = request.url.encode('utf-8')
+    etag = hashlib.sha1(url_bytes).hexdigest()
     if request.headers.get('If-None-Match') == etag:
         return flask.Response(status=304)
     # then we try with Last-Modified
@@ -82,7 +83,8 @@ def add_header(response):
     response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
     response.headers['Cache-Control'] = 'public,max-age=36000'
     response.headers['Last-Modified'] = launch_date
-    response.headers['Etag'] = hashlib.sha1(request.url).hexdigest()
+    url_bytes = request.url.encode('utf-8')
+    response.headers['Etag'] = hashlib.sha1(url_bytes).hexdigest()
     return response
 
 

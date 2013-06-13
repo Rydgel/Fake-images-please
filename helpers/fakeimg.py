@@ -2,7 +2,7 @@
 
 from __future__ import absolute_import, unicode_literals, division
 import os
-import StringIO
+from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
 
 
@@ -63,7 +63,7 @@ class FakeImg():
     @property
     def raw(self):
         """Create the image on memory and return it"""
-        img_io = StringIO.StringIO()
+        img_io = BytesIO()
         self.pil_image.save(img_io, 'PNG')
         img_io.seek(0)
         return img_io
