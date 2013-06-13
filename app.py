@@ -113,7 +113,7 @@ if SENTRY_DSN:
 
 
 if __name__ == '__main__':
-    # app.debug = True
+    app.debug = True
     port = int(os.environ.get('PORT', 8000))
     # logging
     if not app.debug:
