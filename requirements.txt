@@ -1,7 +1,7 @@
-Flask==0.10
+Flask==0.10.1
 Jinja2==2.7
 Pillow==2.0.0
-Werkzeug==0.9
+Werkzeug==0.9.1
 blinker==1.2
 tornado==3.0.2
 gunicorn==0.17.4
