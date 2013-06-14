@@ -113,12 +113,22 @@ if SENTRY_DSN:
 
 
 if __name__ == '__main__':
-    app.debug = True
+    # app.debug = True
     port = int(os.environ.get('PORT', 8000))
     # logging
     if not app.debug:
         handler = logging.StreamHandler(sys.stdout)
         handler.setLevel(logging.WARNING)
         app.logger.addHandler(handler)
+
+        def handle_exception(exc_type, exc_value, exc_traceback):
+            if issubclass(exc_type, KeyboardInterrupt):
+                sys.__excepthook__(exc_type, exc_value, exc_traceback)
+                return
+
+            app.logger.error("Uncaught exception",
+                             exc_info=(exc_type, exc_value, exc_traceback))
+
+        sys.excepthook = handle_exception
 
     app.run(host='0.0.0.0', port=port)
