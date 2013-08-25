@@ -18,9 +18,9 @@ def cached(timeout, cache_key):
         def decorated_function(*args, **kwargs):
             try:
                 mc = pylibmc.Client(
-                    servers=[os.environ.get('MEMCACHE_SERVERS', '127.0.0.1')],
-                    username=os.environ.get('MEMCACHE_USERNAME', None),
-                    password=os.environ.get('MEMCACHE_PASSWORD', None),
+                    servers=[os.environ.get('MEMCACHIER_SERVERS', '127.0.0.1')],
+                    username=os.environ.get('MEMCACHIER_USERNAME', None),
+                    password=os.environ.get('MEMCACHIER_PASSWORD', None),
                     binary=True
                 )
                 rv = mc.get(cache_key)
