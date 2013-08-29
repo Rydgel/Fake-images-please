@@ -2,6 +2,8 @@ box: wercker/python
 
 build:
   steps:
+    - install-packages:
+        packages: libfreetype-dev
     - pip-install
     - script:
         name: tests
