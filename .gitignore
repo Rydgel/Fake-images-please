@@ -1,0 +1,12 @@
+venv
+*.pyc
+.env
+.DS_Store
+.sass-cache
+bin
+lib
+include
+man
+.Python
+.ropeproject
+.idea

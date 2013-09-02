@@ -1,0 +1,58 @@
+box: flenter/multi-python
+build:
+  # The steps that will be executed on build
+  steps:
+
+    - install-packages:
+        packages: libfreetype6-dev
+    # Create a virtual environment, now we only use 2.7.5 (not ubuntu's own
+    # python). And activate
+    - script:
+        name: setup/activate virtualenv using 2.7.5
+        code: |
+            virtualenv -p /usr/local/bin/python2 /tmp/venv27
+            source /tmp/venv27/bin/activate
+
+    # run pip install with caching enabled.
+    - script:
+        name: pip install
+        code: |
+          pip install --download-cache=$WERCKER_CACHE_DIR -r requirements.txt
+
+    # run the tests
+    - script:
+        name: tests 2.7
+        code: |
+          echo "python version $(python --version) running"
+          python tests.py
+
+    # step out of our virtual environment
+    - script:
+        name: deactivate virtualenv
+        code: |
+            deactivate
+
+    # create a virtual environment for 3.3.2
+    - script:
+        name: setup/activate virtualenv using 3.3.2
+        code: |
+            virtualenv -p /usr/local/bin/python3 /tmp/venv33
+            source /tmp/venv33/bin/activate
+
+    - script:
+        name: pip install
+        code: |
+          pip install --download-cache=$WERCKER_CACHE_DIR -r requirements.txt
+
+    # A custom script step, name value is used in the UI
+    # and the code value contains the command that get executed
+    - script:
+        name: tests 3.3
+        code: |
+          echo "python version $(python --version) running"
+          python tests.py
+
+    - script:
+        name: deactivate virtualenv
+        code: |
+            deactivate

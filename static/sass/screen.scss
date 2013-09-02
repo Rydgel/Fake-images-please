@@ -1,0 +1,174 @@
+@import "compass";
+@import "compass/reset";
+@import "grid";
+@import "typo";
+@import "icon";
+
+$bg-color: #333333;
+$text-color: #eae0d0;
+$border-color: $bg-color;
+$hl-color: #FFA273;
+
+
+html, body {
+  height: 100%;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: $hl-color;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  position: relative;
+  top: 1px;
+}
+
+ul li {
+  list-style: disc;
+  @include margin-trailer(1);
+}
+
+img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+body {
+  background: url(../images/dark_wall.png) $bg-color;
+  color: $text-color;
+}
+
+header[role=banner] {
+  @include margin-leader(.5);
+  border-color: $hl-color;
+
+  h1 {
+    @include margin-leader(.5);
+    @include margin-trailer(.1);
+  }
+
+  h2 {
+    color: $hl-color;
+    @include margin-trailer(0.66);
+  }
+
+  section[role=share] {
+    width: 66px;
+
+    @include adjust-font-size-to(20px);
+
+    @include at-breakpoint($break) {
+      float: right;
+    }
+    .twitter-share-button {
+      float: left;
+    }
+    .fb-like {
+      float: left;
+    }
+    .fb_iframe_widget span {
+      vertical-align: top;
+    }
+  }
+}
+
+.container {
+  @include container;
+  @include at-breakpoint($break) {
+    @include container;
+  }
+
+  section[role=images] {
+    img {
+      @include border-radius(5px);
+    }
+    .first-line {
+      @include span-columns(4, 4);
+      margin-bottom: 24px;
+    }
+    .second-line-1 {
+      @include span-columns(2, 4);
+    }
+    .second-line-2 {
+      @include span-columns(2 omega, 4);
+    }
+    .third-line {
+      @include span-columns(4, 4);
+      margin-top: 24px;
+    }
+    @include at-breakpoint($break) {
+      @include span-columns(4 omega, 10);
+    }
+
+  }
+
+  aside[role=sidebar] {
+    @include at-breakpoint($break) {
+      @include span-columns(6, 10);
+    }
+  }
+}
+
+pre > code {
+  background: $text-color;
+  @include margin-trailer(1);
+  padding: 0.6em;
+  display: block;
+  word-wrap: break-word;
+  color: $bg-color;
+  @include border-radius(5px);
+}
+
+figure#example {
+  @include padding-leader(.75);
+  @include padding-trailer(.75);
+}
+
+footer {
+  @include margin-leader(.75);
+  @include padding-leader(.75);
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, .1);
+
+  .footer-left {
+    @include at-breakpoint($break) {
+      @include span-columns(6, 10);
+    }
+  }
+
+  .footer-right {
+     @include at-breakpoint($break) {
+      @include span-columns(4 omega, 10);
+    }
+  }
+}
+
+.mega-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%;
+
+  .img-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    height: 500px;
+    img {
+      @include border-radius(5px);
+    }
+  }
+}

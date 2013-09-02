@@ -1,0 +1,58 @@
+@import "compass/typography";
+
+$relative-font-sizing : true;
+$base-font-size       : 16px;
+$base-line-height     : 24px;
+
+$font-family: "ff-dagny-web-pro", Helvetica, Arial, sans-serif;
+$script-family: "brandon-grotesque", serif;
+$mono-family: Menlo, Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace;
+
+@include establish-baseline;
+
+body {
+  font-family: $font-family;
+  @include at-breakpoint($break) {
+      @include adjust-font-size-to(20px);
+      line-height: 1.5;
+  }
+}
+
+code {
+  font-family: $mono-family;
+  @include adjust-font-size-to(12px);
+}
+
+p {
+  @include margin-trailer(1);
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+h1 {
+  @include adjust-font-size-to(30px);
+  @include at-breakpoint($break) {
+      @include adjust-font-size-to(54px);
+  }
+  font-family: $script-family;
+  font-weight: bold;
+}
+
+h2 {
+  letter-spacing: .3em;
+  text-indent: .2em;
+  text-transform: uppercase;
+  @include adjust-font-size-to(12px);
+  @include at-breakpoint($break) {
+      @include adjust-font-size-to(16px);
+  }
+}
+
+h3 {
+  @include adjust-font-size-to(28px);
+  font-weight: bold;
+  font-family: $script-family;
+  @include margin-leader(.75);
+  @include margin-trailer(.75);
+}
