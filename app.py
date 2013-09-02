@@ -9,7 +9,6 @@ import datetime
 import hashlib
 import flask
 from flask import Flask, render_template, request, send_file
-from helpers.decorators import cached
 from helpers.fakeimg import FakeImg
 from helpers.converters import ColorConverter, ImgSizeConverter
 try:
@@ -28,7 +27,6 @@ launch_date = datetime.datetime.now()
 
 
 @app.route('/')
-@cached(60, 'index')
 def index():
     """Home page"""
     return render_template('index.html')
@@ -57,7 +55,7 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
     }
     image = FakeImg(**args)
     # return static file
-    return send_file(image.raw, mimetype='image/png')
+    return send_file(image.raw, mimetype='image/png', add_etags=False)
 
 
 # caching stuff

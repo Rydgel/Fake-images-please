@@ -35,15 +35,11 @@ Just pass the `retina=1` in the URL. Your image will be 2 times bigger.
 
 Prerequisites:
 
-* Python
+* Python 2.7 or Python 3.3 or Pypy 2.1
 * Python development headers
 * pip
 * A compilation chain (like gcc or else)
-
-Optional:
-
-* Memcached
-* Memcached development headers
+* libfreetype-dev
 
 ```bash
 # First you need to clone the project
