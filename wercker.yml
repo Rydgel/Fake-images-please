@@ -16,7 +16,7 @@ build:
     # run pip install with caching enabled.
     - script:
         name: pip install
-        echo: |
+        code: |
           python -v
           pip install --download-cache=$WERCKER_CACHE_DIR -r requirements.txt
 
@@ -42,7 +42,7 @@ build:
 
     - script:
         name: pip install
-        echo: |
+        code: |
           python -v
           pip install --download-cache=$WERCKER_CACHE_DIR -r requirements.txt
 
