@@ -1,6 +1,11 @@
 Fakeimg Changelog
 ===============
 
+Version 0.5
+-----------
+- Python 3.3 support
+- Pypy 2.1 support
+
 Version 0.4
 -----------
 - Font size settings
