@@ -1,9 +1,9 @@
 Flask==0.10.1
 Jinja2==2.7.1
-Pillow==2.1.0
+Pillow==2.2.1
 Werkzeug==0.9.4
 blinker==1.3
 tornado==3.1.1
 gunicorn==18.0
-newrelic==2.0.0.1
--e git+https://github.com/getsentry/raven-python#egg=raven
+newrelic==2.2.1.3
+raven==3.5.0
