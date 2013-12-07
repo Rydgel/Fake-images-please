@@ -31,6 +31,16 @@ You can manually change the font size by passing in the URL `font_size=12`.
 
 Just pass the `retina=1` in the URL. Your image will be 2 times bigger.
 
+## Transparency
+
+Colors support transparency (0 - 255) by putting the alpha value after the color
+itself. Both colors are supported.
+
+```html
+<img src="http://fakeimg.pl/350x200/ff0000,128/000">
+<img src="http://fakeimg.pl/350x200/ff0000,128/000,10">
+```
+
 ## Set up your own instance
 
 Prerequisites:
