@@ -34,11 +34,29 @@ def index():
 
 @app.route('/<imgs:width>/')
 @app.route('/<imgs:width>/<color:bgd>/')
+@app.route('/<imgs:width>/<color:bgd>,<int(min=0, max=255):alphabgd>/')
 @app.route('/<imgs:width>/<color:bgd>/<color:fgd>/')
+@app.route('/<imgs:width>/<color:bgd>,<int(min=0, max=255):alphabgd>/'
+           '<color:fgd>/')
+@app.route('/<imgs:width>/<color:bgd>/<color:fgd>'
+           ',<int(min=0, max=255):alphafgd>/')
+@app.route('/<imgs:width>/<color:bgd>,<int(min=0, max=255):alphabgd>/'
+           '<color:fgd>,<int(min=0, max=255):alphafgd>/')
 @app.route('/<imgs:width>x<imgs:height>/')
 @app.route('/<imgs:width>x<imgs:height>/<color:bgd>/')
+@app.route('/<imgs:width>x<imgs:height>/<color:bgd>,'
+           '<int(min=0, max=255):alphabgd>/')
 @app.route('/<imgs:width>x<imgs:height>/<color:bgd>/<color:fgd>/')
-def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
+@app.route('/<imgs:width>x<imgs:height>/<color:bgd>'
+           ',<int(min=0, max=255):alphabgd>/<color:fgd>/')
+@app.route('/<imgs:width>x<imgs:height>/<color:bgd>/<color:fgd>'
+           ',<int(min=0, max=255):alphafgd>/')
+@app.route('/<imgs:width>x<imgs:height>/'
+           '<color:bgd>,<int(min=0, max=255):alphabgd>/<color:fgd>,'
+           '<int(min=0, max=255):alphafgd>/')
+def placeholder(width, height=None,
+                bgd="cccccc", fgd="909090",
+                alphabgd=255, alphafgd=255):
     """This endpoint generates the placeholder itself, based on arguments.
     If the height is missing, just make the image square.
     """
@@ -47,7 +65,9 @@ def placeholder(width, height=None, bgd="cccccc", fgd="909090"):
         "width": width,
         "height": height or width,
         "background_color": bgd,
+        "alpha_background": alphabgd,
         "foreground_color": fgd,
+        "alpha_foreground": alphafgd,
         "text": request.args.get('text'),
         "font_name": request.args.get('font'),
         "font_size": request.args.get('font_size'),

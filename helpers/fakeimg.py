@@ -16,6 +16,7 @@ class FakeImg():
         raw (str): Real image in PNG format.
     """
     def __init__(self, width, height, background_color, foreground_color,
+                 alpha_background, alpha_foreground,
                  text=None,
                  font_name=None,
                  font_size=None,
@@ -28,9 +29,11 @@ class FakeImg():
             background_color (str): The background color of the image. It
                 should be in web hexadecimal format.
                 Example: #FFF, #123456.
+            alpha_background (int): Alpha value of the background color.
             foreground_color (str): The text color of the image. It should be
                 in web hexadecimal format.
                 Example: #FFF, #123456.
+            alpha_foreground (int): Alpha value of the foreground color.
             text (str): Optional. The actual text which will be drawn on the
                 image.
                 Default: "{0} x {1}".format(width, height)
@@ -47,7 +50,9 @@ class FakeImg():
         else:
             self.width, self.height = width, height
         self.background_color = "#{0}".format(background_color)
+        self.alpha_background = alpha_background
         self.foreground_color = "#{0}".format(foreground_color)
+        self.alpha_foreground = alpha_foreground
         self.text = text or "{0} x {1}".format(width, height)
         self.font_name = font_name or "yanone"
         try:
@@ -83,10 +88,29 @@ class FakeImg():
             self.font_name = "yanone"
             return self._choose_font()
 
+    def _hexToInt(self, hex_string):
+        return int(hex_string, 16)
+
+    def _hex_alpha_to_RGBA(self, hex_color, alpha):
+        """Convert hexadecimal + alpha value to a rgba tuple"""
+        if (len(hex_color) == 4):
+            red = self._hexToInt(hex_color[1:2])
+            green = self._hexToInt(hex_color[2:3])
+            blue = self._hexToInt(hex_color[3:4])
+        else:
+            red = self._hexToInt(hex_color[1:3])
+            green = self._hexToInt(hex_color[3:5])
+            blue = self._hexToInt(hex_color[5:7])
+        return (red, green, blue, alpha)
+
     def _draw(self):
         """Image creation using Pillow (PIL fork)"""
         size = (self.width, self.height)
-        image = Image.new("RGB", size, self.background_color)
+
+        rgba_background = self._hex_alpha_to_RGBA(self.background_color,
+                                                  self.alpha_background)
+
+        image = Image.new("RGBA", size, rgba_background)
         # Draw on the image
         draw = ImageDraw.Draw(image)
 
@@ -94,8 +118,11 @@ class FakeImg():
         text_coord = ((self.width - text_width) / 2,
                       (self.height - text_height) / 2)
 
+        rgba_foreground = self._hex_alpha_to_RGBA(self.foreground_color,
+                                                  self.alpha_foreground)
+
         draw.text(text_coord, self.text,
-                  fill=self.foreground_color, font=self.font)
+                  fill=rgba_foreground, font=self.font)
 
         del draw
 
