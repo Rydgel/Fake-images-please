@@ -92,7 +92,18 @@ class AppTestCase(unittest.TestCase):
             self.assertEqual(width, 200)
             self.assertEqual(height, 100)
 
+        with self.app.get('/200x100/CCCCCC,50/') as r:
+            self.assertEqual(r.status_code, 200)
+            self.assertEqual(r.mimetype, 'image/png')
+            img = self._open_image(r.data)
+            width, height = img.size
+            self.assertEqual(width, 200)
+            self.assertEqual(height, 100)
+
         with self.app.get('/200x100/prout/') as r:
+            self.assertEqual(r.status_code, 404)
+
+        with self.app.get('/200x100/CCCCCC,5123/') as r:
             self.assertEqual(r.status_code, 404)
 
     def testPlaceholder4(self):
@@ -104,14 +115,52 @@ class AppTestCase(unittest.TestCase):
             self.assertEqual(width, 200)
             self.assertEqual(height, 100)
 
-        with self.app.get('/200x100/fff/ee') as r:
+        with self.app.get('/200x100/eee,10/000/') as r:
+            self.assertEqual(r.status_code, 200)
+            self.assertEqual(r.mimetype, 'image/png')
+            img = self._open_image(r.data)
+            width, height = img.size
+            self.assertEqual(width, 200)
+            self.assertEqual(height, 100)
+
+        with self.app.get('/200x100/eee/000,25/') as r:
+            self.assertEqual(r.status_code, 200)
+            self.assertEqual(r.mimetype, 'image/png')
+            img = self._open_image(r.data)
+            width, height = img.size
+            self.assertEqual(width, 200)
+            self.assertEqual(height, 100)
+
+        with self.app.get('/200x100/eee,15/000,15/') as r:
+            self.assertEqual(r.status_code, 200)
+            self.assertEqual(r.mimetype, 'image/png')
+            img = self._open_image(r.data)
+            width, height = img.size
+            self.assertEqual(width, 200)
+            self.assertEqual(height, 100)
+
+        with self.app.get('/200x100/fff/ee/') as r:
             self.assertEqual(r.status_code, 404)
 
-        with self.app.get('/200x100/eeeeeee/fff') as r:
+        with self.app.get('/200x100/eee,25555/000/') as r:
+            self.assertEqual(r.status_code, 404)
+
+        with self.app.get('/200x100/eee/000,b/') as r:
+            self.assertEqual(r.status_code, 404)
+
+        with self.app.get('/200x100/eee,458/000,2555/') as r:
             self.assertEqual(r.status_code, 404)
 
     def testRetina(self):
         with self.app.get('/200x100/eee/000/?retina=1') as r:
+            self.assertEqual(r.status_code, 200)
+            self.assertEqual(r.mimetype, 'image/png')
+            img = self._open_image(r.data)
+            width, height = img.size
+            self.assertEqual(width, 400)
+            self.assertEqual(height, 200)
+
+        with self.app.get('/200x100/eee,10/000,10/?retina=1') as r:
             self.assertEqual(r.status_code, 200)
             self.assertEqual(r.mimetype, 'image/png')
             img = self._open_image(r.data)
