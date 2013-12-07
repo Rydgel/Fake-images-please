@@ -1,6 +1,10 @@
 Fakeimg Changelog
 ===============
 
+Version 0.6
+-----------
+- Transparency added
+
 Version 0.5
 -----------
 - Python 3.3 support
