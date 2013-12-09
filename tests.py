@@ -39,7 +39,6 @@ class AppTestCase(unittest.TestCase):
     def testFavicon(self):
         with self.app.get('/favicon.ico') as r:
             self.assertEqual(r.status_code, 200)
-            self.assertEqual(r.mimetype, 'image/x-icon')
 
     def testRobotsTxt(self):
         with self.app.get('/robots.txt') as r:

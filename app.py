@@ -10,7 +10,7 @@ import hashlib
 import flask
 from flask import Flask, render_template, request, send_file
 from helpers.fakeimg import FakeImg
-from helpers.converters import ColorConverter, ImgSizeConverter
+from helpers.converters import ColorConverter, ImgSizeConverter, AlphaConverter
 try:
     from raven.contrib.flask import Sentry
 except ImportError:
@@ -19,9 +19,10 @@ except ImportError:
 
 app = Flask(__name__)
 # Custom converter for matching hexadecimal colors
-app.url_map.converters['color'] = ColorConverter
+app.url_map.converters['c'] = ColorConverter
 # Custom converter for not having an image > 4000px
-app.url_map.converters['imgs'] = ImgSizeConverter
+app.url_map.converters['i'] = ImgSizeConverter
+app.url_map.converters['a'] = AlphaConverter
 # Generate Last-Modified timestamp
 launch_date = datetime.datetime.now()
 
@@ -32,28 +33,20 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/<imgs:width>/')
-@app.route('/<imgs:width>/<color:bgd>/')
-@app.route('/<imgs:width>/<color:bgd>,<int(min=0, max=255):alphabgd>/')
-@app.route('/<imgs:width>/<color:bgd>/<color:fgd>/')
-@app.route('/<imgs:width>/<color:bgd>,<int(min=0, max=255):alphabgd>/'
-           '<color:fgd>/')
-@app.route('/<imgs:width>/<color:bgd>/<color:fgd>'
-           ',<int(min=0, max=255):alphafgd>/')
-@app.route('/<imgs:width>/<color:bgd>,<int(min=0, max=255):alphabgd>/'
-           '<color:fgd>,<int(min=0, max=255):alphafgd>/')
-@app.route('/<imgs:width>x<imgs:height>/')
-@app.route('/<imgs:width>x<imgs:height>/<color:bgd>/')
-@app.route('/<imgs:width>x<imgs:height>/<color:bgd>,'
-           '<int(min=0, max=255):alphabgd>/')
-@app.route('/<imgs:width>x<imgs:height>/<color:bgd>/<color:fgd>/')
-@app.route('/<imgs:width>x<imgs:height>/<color:bgd>'
-           ',<int(min=0, max=255):alphabgd>/<color:fgd>/')
-@app.route('/<imgs:width>x<imgs:height>/<color:bgd>/<color:fgd>'
-           ',<int(min=0, max=255):alphafgd>/')
-@app.route('/<imgs:width>x<imgs:height>/'
-           '<color:bgd>,<int(min=0, max=255):alphabgd>/<color:fgd>,'
-           '<int(min=0, max=255):alphafgd>/')
+@app.route('/<i:width>/')
+@app.route('/<i:width>/<c:bgd>/')
+@app.route('/<i:width>/<c:bgd>,<a:alphabgd>/')
+@app.route('/<i:width>/<c:bgd>/<c:fgd>/')
+@app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<c:fgd>/')
+@app.route('/<i:width>/<c:bgd>/<c:fgd>,<a:alphafgd>/')
+@app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<c:fgd>,<a:alphafgd>/')
+@app.route('/<i:width>x<i:height>/')
+@app.route('/<i:width>x<i:height>/<c:bgd>/')
+@app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/')
+@app.route('/<i:width>x<i:height>/<c:bgd>/<c:fgd>/')
+@app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<c:fgd>/')
+@app.route('/<i:width>x<i:height>/<c:bgd>/<c:fgd>,<a:alphafgd>/')
+@app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<c:fgd>,<a:alphafgd>/')
 def placeholder(width, height=None,
                 bgd="cccccc", fgd="909090",
                 alphabgd=255, alphafgd=255):
