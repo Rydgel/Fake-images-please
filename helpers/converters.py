@@ -22,7 +22,7 @@ class ImgSizeConverter(IntegerConverter):
 
 
 class AlphaConverter(IntegerConverter):
-    """This converter was made to simplificate the routes"""
+    """This converter was made to simplify the routes"""
     def __init__(self, url_map):
         super(AlphaConverter, self).__init__(url_map, min=0, max=255)
 
