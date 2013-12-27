@@ -94,14 +94,14 @@ class FakeImg():
 
     def _hex_alpha_to_rgba(self, hex_color, alpha):
         """Convert hexadecimal + alpha value to a rgba tuple"""
-        if len(hex_color) == 4:
-            red = self._hex_to_int(hex_color[1:2])
-            green = self._hex_to_int(hex_color[2:3])
-            blue = self._hex_to_int(hex_color[3:4])
-        else:
-            red = self._hex_to_int(hex_color[1:3])
-            green = self._hex_to_int(hex_color[3:5])
-            blue = self._hex_to_int(hex_color[5:7])
+        hex_color = hex_color.lstrip('#')
+        if len(hex_color) == 3:
+            hex_color = ''.join([v*2 for v in list(hex_color)])
+
+        red = self._hex_to_int(hex_color[0:2])
+        green = self._hex_to_int(hex_color[2:4])
+        blue = self._hex_to_int(hex_color[4:6])
+
         return red, green, blue, alpha
 
     def _draw(self):
