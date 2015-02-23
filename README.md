@@ -1,5 +1,3 @@
-[![wercker status](https://app.wercker.com/status/fe77fd2310f03d54fe67e29530944bce/m "wercker status")](https://app.wercker.com/project/bykey/fe77fd2310f03d54fe67e29530944bce)
-
 # Fake Images Please?
 
 When designing websites, you may not have the images you need at first. But you already know the sizes and inserting some placeholders can help you better seeing the layout. Don’t waste your time making dummy images for your mockup or wireframe. Fakeimg.pl is a little tool that generates images with an URL. Choose the size, the colors, even the text. It’s free and [open-source](https://github.com/Rydgel/Fake-images-please).
