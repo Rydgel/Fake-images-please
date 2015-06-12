@@ -57,7 +57,11 @@ class FakeImg():
         self.font_name = font_name or "yanone"
         try:
             if int(font_size) > 0:
-                self.font_size = int(font_size)
+                if retina:
+                    # scaling font at retina display
+                    self.font_size = 2 * int(font_size)
+                else:
+                    self.font_size = int(font_size)
             else:
                 raise ValueError
         except (ValueError, TypeError):
