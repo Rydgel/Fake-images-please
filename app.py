@@ -8,7 +8,7 @@ import logging
 import datetime
 import hashlib
 import flask
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request, make_response, send_file
 from helpers.fakeimg import FakeImg
 from helpers.converters import ColorConverter, ImgSizeConverter, AlphaConverter
 try:
@@ -67,8 +67,9 @@ def placeholder(width, height=None,
         "retina": "retina" in request.args
     }
     image = FakeImg(**args)
-    # return static file
-    return send_file(image.raw, mimetype='image/png', add_etags=False)
+    response = make_response(send_file(image.raw, mimetype='image/png', add_etags=False))
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
 
 
 # caching stuff

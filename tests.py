@@ -193,6 +193,9 @@ class AppTestCase(unittest.TestCase):
             width, height = img.size
             self.assertEqual(width, 200)
             self.assertEqual(height, 100)
+    def testCORSHeaders(self):
+        with self.app.get('/200x100/') as r:
+            self.assertEqual(r.headers['Access-Control-Allow-Origin'], '*')
 
 if __name__ == '__main__':
     unittest.main()
