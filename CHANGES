@@ -1,6 +1,12 @@
 Fakeimg Changelog
 ===============
 
+Version 0.7
+-----------
+- Removing Python 2 support to clean code
+- Upgrading to Python 3.6
+- Update dependencies
+
 Version 0.6
 -----------
 - Transparency added

@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-from __future__ import absolute_import, unicode_literals
 import unittest
 from app import app
 from PIL import Image
@@ -14,7 +10,8 @@ class AppTestCase(unittest.TestCase):
         app.config['TESTING'] = True
         self.app = app.test_client()
 
-    def _open_image(self, image_data):
+    @staticmethod
+    def _open_image(image_data):
         strio = BytesIO()
         strio.write(image_data)
         strio.seek(0)
@@ -193,9 +190,11 @@ class AppTestCase(unittest.TestCase):
             width, height = img.size
             self.assertEqual(width, 200)
             self.assertEqual(height, 100)
+
     def testCORSHeaders(self):
         with self.app.get('/200x100/') as r:
             self.assertEqual(r.headers['Access-Control-Allow-Origin'], '*')
+
 
 if __name__ == '__main__':
     unittest.main()

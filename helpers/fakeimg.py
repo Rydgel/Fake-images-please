@@ -1,12 +1,9 @@
-# -*- coding: utf-8 -*-
-
-from __future__ import absolute_import, unicode_literals, division
 import os
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
 
 
-class FakeImg():
+class FakeImg:
     """A Fake Image.
 
     This class uses PIL to create an image based on passed parameters.
@@ -15,45 +12,37 @@ class FakeImg():
         pil_image (PIL.Image.Image): PIL object.
         raw (str): Real image in PNG format.
     """
-    def __init__(self, width, height, background_color, foreground_color,
-                 alpha_background, alpha_foreground,
-                 text=None,
-                 font_name=None,
-                 font_size=None,
-                 retina=False):
+    def __init__(self, width, height, background_color, foreground_color, alpha_background, alpha_foreground,
+                 text=None, font_name=None, font_size=None, retina=False):
         """Init FakeImg with parameters.
 
         Args:
             width (int): The width of the image.
             height (int): The height of the image.
-            background_color (str): The background color of the image. It
-                should be in web hexadecimal format.
+            background_color (str): The background color of the image. It should be in web hexadecimal format.
                 Example: #FFF, #123456.
             alpha_background (int): Alpha value of the background color.
-            foreground_color (str): The text color of the image. It should be
-                in web hexadecimal format.
+            foreground_color (str): The text color of the image. It should be in web hexadecimal format.
                 Example: #FFF, #123456.
             alpha_foreground (int): Alpha value of the foreground color.
-            text (str): Optional. The actual text which will be drawn on the
-                image.
-                Default: "{0} x {1}".format(width, height)
+            text (str): Optional. The actual text which will be drawn on the image.
+                Default: f"{width} x {height}"
             font_name (str): Optional. The font name to use.
                 Default: "yanone".
                 Fallback to "yanone" if font not found.
-            font_size (int): Optional. The font size to use.
-                Default value is calculated based on the image dimension.
-            retina (bool): Optional. Wether to use retina display or not.
-                It basically just multiplies dimension of the image by 2.
+            font_size (int): Optional. The font size to use. Default value is calculated based on the image dimension.
+            retina (bool): Optional. Wether to use retina display or not. It basically just multiplies dimension of
+            the image by 2.
         """
         if retina:
             self.width, self.height = [x * 2 for x in [width, height]]
         else:
             self.width, self.height = width, height
-        self.background_color = "#{0}".format(background_color)
+        self.background_color = f"#{background_color}"
         self.alpha_background = alpha_background
-        self.foreground_color = "#{0}".format(foreground_color)
+        self.foreground_color = f"#{foreground_color}"
         self.alpha_foreground = alpha_foreground
-        self.text = text or "{0} x {1}".format(width, height)
+        self.text = text or f"{width} x {height}"
         self.font_name = font_name or "yanone"
         try:
             if int(font_size) > 0:
@@ -84,7 +73,7 @@ class FakeImg():
     def _choose_font(self):
         """Choosing a font, the fallback is Yanone"""
         font_folder = os.path.dirname(os.path.dirname(__file__))
-        font_path = '{0}/font/{1}.otf'.format(font_folder, self.font_name)
+        font_path = f"{font_folder}/font/{self.font_name}.otf"
         try:
             return ImageFont.truetype(font_path, self.font_size)
         except IOError:
@@ -100,7 +89,7 @@ class FakeImg():
         """Convert hexadecimal + alpha value to a rgba tuple"""
         hex_color = hex_color.lstrip('#')
         if len(hex_color) == 3:
-            hex_color = ''.join([v*2 for v in list(hex_color)])
+            hex_color = ''.join([v * 2 for v in list(hex_color)])
 
         red = self._hex_to_int(hex_color[0:2])
         green = self._hex_to_int(hex_color[2:4])
@@ -112,23 +101,21 @@ class FakeImg():
         """Image creation using Pillow (PIL fork)"""
         size = (self.width, self.height)
 
-        rgba_background = self._hex_alpha_to_rgba(self.background_color,
-                                                  self.alpha_background)
+        rgba_background = self._hex_alpha_to_rgba(self.background_color, self.alpha_background)
 
         image = Image.new("RGBA", size, rgba_background)
-        # Draw on the image
         draw = ImageDraw.Draw(image)
 
         (_, y_offset) = self.font.getoffset(self.text)
         text_width, text_height = draw.textsize(self.text, font=self.font)
-        text_coord = ((self.width - text_width) / 2,
-                      (self.height - text_height - y_offset) / 2)
 
-        rgba_foreground = self._hex_alpha_to_rgba(self.foreground_color,
-                                                  self.alpha_foreground)
+        text_coord_x = (self.width - text_width) / 2
+        text_coord_y = (self.height - text_height - y_offset) / 2
+        text_coord = (text_coord_x, text_coord_y)
 
-        draw.text(text_coord, self.text,
-                  fill=rgba_foreground, font=self.font)
+        rgba_foreground = self._hex_alpha_to_rgba(self.foreground_color, self.alpha_foreground)
+
+        draw.text(text_coord, self.text, fill=rgba_foreground, font=self.font)
 
         del draw
 
