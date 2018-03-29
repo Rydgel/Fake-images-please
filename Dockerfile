@@ -19,4 +19,6 @@ RUN pip install --upgrade pip
 ADD requirements.txt /tmp/
 RUN pip install --requirement /tmp/requirements.txt
 
+EXPOSE 80
+
 COPY ./app /app
