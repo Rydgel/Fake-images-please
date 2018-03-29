@@ -1,6 +1,16 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.6
+FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
 
 MAINTAINER Jérôme Mahuet <jerome.mahuet@gmail.com>
+
+RUN apk --update --no-cache add \
+    build-base \
+    python-dev \
+    jpeg-dev \
+    libpng \
+    zlib-dev \
+    freetype-dev
+
+ENV LIBRARY_PATH=/lib:/usr/lib
 
 ENV NGINX_WORKER_PROCESSES auto
 ENV STATIC_PATH /app/static
