@@ -7,10 +7,6 @@ import flask
 from flask import Flask, render_template, request, make_response, send_file
 from helpers.fakeimg import FakeImg
 from helpers.converters import ColorConverter, ImgSizeConverter, AlphaConverter
-try:
-    from raven.contrib.flask import Sentry
-except ImportError:
-    pass
 
 
 app = Flask(__name__)
@@ -110,13 +106,6 @@ def send_text_file(file_name):
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
-
-
-# Sentry
-SENTRY_DSN = os.environ.get('SENTRY_DSN')
-if SENTRY_DSN:
-    app.config['SENTRY_DSN'] = SENTRY_DSN
-    sentry = Sentry(app)
 
 
 if __name__ == '__main__':

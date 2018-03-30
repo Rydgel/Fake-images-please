@@ -45,22 +45,12 @@ itself. Both colors are supported.
 
 Prerequisites:
 
-* Python 3.6
-* Python development headers
-* pip
-* A compilation chain (like gcc or else)
-* libfreetype-dev
+* Docker
 
 ```bash
-# First you need to clone the project
-$ git clone https://github.com/Rydgel/Fake-images-please.git
-# Install all dependencies with pip
-$ pip install Flask Pillow
-# Run the tests
-$ python tests.py
-# Run the server
-$ python app.py
-# Open the browser at http://127.0.0.1:5000
+# Run the image (change the port if you need)
+$ docker run -d -p 80:80 rydgel/fakeimg:latest
+# Open the browser at http://127.0.0.1:80
 ```
 
 ## About
