@@ -72,9 +72,8 @@ class FakeImg:
 
     def _choose_font(self):
         """Choosing a font, the fallback is Yanone"""
-        font_folder = os.path.dirname(os.path.dirname(__file__))
-        font_path = f"{font_folder}/font/{self.font_name}.otf"
         try:
+            font_path = self._font_path_from_name()
             return ImageFont.truetype(font_path, self.font_size)
         except IOError:
             # font not found: fallback
@@ -96,6 +95,19 @@ class FakeImg:
         blue = self._hex_to_int(hex_color[4:6])
 
         return red, green, blue, alpha
+
+    def _font_path_from_name(self):
+        font_folder = os.path.dirname(os.path.dirname(__file__))
+        if self.font_name == "bebas":
+            return f"{font_folder}/font/bebas.otf"
+        elif self.font_name == "lobster":
+            return f"{font_folder}/font/lobster.otf"
+        elif self.font_name == "museo":
+            return f"{font_folder}/font/museo.otf"
+        elif self.font_name == "noto":
+            return f"{font_folder}/font/noto.ttc"
+        else:
+            return f"{font_folder}/font/yanone.otf"
 
     def _draw(self):
         """Image creation using Pillow (PIL fork)"""

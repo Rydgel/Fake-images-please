@@ -14,6 +14,7 @@ You just have to put your image size after our URL. Only the first parameter is 
 <img src="https://fakeimg.pl/250x100/ff0000/">
 <img src="https://fakeimg.pl/350x200/ff0000/000">
 <img src="https://fakeimg.pl/350x200/?text=Hello">
+<img src="https://fakeimg.pl/350x200/?text=オラ&font=noto">
 <img src="https://fakeimg.pl/350x200/?text=World&font=lobster">
 ```
 
@@ -22,6 +23,7 @@ Use them directly in an image tag or a CSS background, or whatever you want to.
 ## Change font
 
 There are three *bonus* fonts you can choose by passing `font=lobster`, `font=bebas`, or `font=museo` in the URL.
+Also please not that the `font=noto` is available for chinese/japanese/korean texts.
 
 ## Change font size
 
@@ -30,6 +32,10 @@ You can manually change the font size by passing in the URL `font_size=12`.
 ## Retina mode
 
 Just pass the `retina=1` in the URL. Your image will be 2 times bigger.
+
+## Asian text support
+
+You can use the font `noto` for support of japanese, korean and chinese text.
 
 ## Transparency
 
@@ -55,6 +61,6 @@ $ docker run -d -p 80:80 rydgel/fakeimg:latest
 
 ## About
 
-Made by Jérôme Mahuet in 2013.
+Made by Jérôme Mahuet in 2018.
 Follow [@rydgel](http://twitter.com/rydgel) to stay up-to-date with the project, or if you just want to ask something.
 Feel free to make pull requests.

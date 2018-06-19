@@ -1,6 +1,12 @@
 Fakeimg Changelog
 ===============
 
+Version 0.9
+-----------
+- Adding support for japanese text with `noto` font
+- Adding support for chinese text with `noto` font
+- Adding support for korean text with `noto` font
+
 Version 0.8
 -----------
 - Removing Sentry
