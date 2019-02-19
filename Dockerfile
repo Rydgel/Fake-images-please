@@ -1,4 +1,4 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.7-alpine3.8
+FROM tiangolo/meinheld-gunicorn-flask:python3.7-alpine3.8
 
 MAINTAINER Jérôme Mahuet <jerome.mahuet@gmail.com>
 
