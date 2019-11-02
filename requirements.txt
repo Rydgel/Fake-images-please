@@ -1,6 +1,6 @@
 Flask==1.0.2
 Jinja2==2.10
-Pillow==5.4.1
+Pillow==6.2.0
 Werkzeug==0.14.1
 blinker==1.4
 raven==6.10.0
