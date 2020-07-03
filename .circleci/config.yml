@@ -25,8 +25,6 @@ jobs:
       - run:
           name: Setup VirtualEnv
           command: |
-            echo 'export TAG=1.0.${CIRCLE_BUILD_NUM}' >> $BASH_ENV
-            echo 'export IMAGE_NAME=fakeimg' >> $BASH_ENV 
             virtualenv venv
             . venv/bin/activate
             pip install --no-cache-dir -r requirements.txt
@@ -45,6 +43,8 @@ jobs:
       - run:
           name: Build and push Docker image
           command: |
+            echo 'export TAG=1.0.${CIRCLE_BUILD_NUM}' >> $BASH_ENV
+            echo 'export IMAGE_NAME=fakeimg' >> $BASH_ENV 
             docker build -t rydgel/$IMAGE_NAME:$TAG .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push rydgel/$IMAGE_NAME:$TAG
