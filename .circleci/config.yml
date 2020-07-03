@@ -3,25 +3,22 @@ workflows:
   version: 2.1
   build_all:
     jobs:
-      - build
+      - build_and_test
       - test:
           requires:
-            - build
+            - build_and_test
   build_master:
     jobs:
-      - build
-      - test:
-          requires:
-            - build
+      - build_and_test
       - deploy:
           requires:
-            - test
+            - build_and_test
           filters:
             branches:
               only:
                 - master
 jobs:
-  build:
+  build_and_test:
     docker:
       - image: circleci/python:3.7.8
     steps:
@@ -34,12 +31,7 @@ jobs:
             virtualenv venv
             . venv/bin/activate
             pip install --no-cache-dir -r requirements.txt
-  test:
-    docker:
-      - image: circleci/python:3.7.8
-    steps:
-     - checkout
-     - run:
+      - run:
         name: Run Tests
         command: |
           . venv/bin/activate
@@ -54,7 +46,6 @@ jobs:
       - run:
           name: Build and push Docker image
           command: |
-            . venv/bin/activate
             docker build -t rydgel/$IMAGE_NAME:$TAG .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push rydgel/$IMAGE_NAME:$TAG
