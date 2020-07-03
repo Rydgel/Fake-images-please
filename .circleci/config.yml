@@ -4,9 +4,6 @@ workflows:
   build_all:
     jobs:
       - build_and_test
-      - test:
-          requires:
-            - build_and_test
   build_master:
     jobs:
       - build_and_test
@@ -22,6 +19,8 @@ jobs:
     docker:
       - image: circleci/python:3.7.8
     steps:
+      - setup_remote_docker:
+          docker_layer_caching: true
       - checkout
       - run:
           name: Setup VirtualEnv
@@ -32,10 +31,10 @@ jobs:
             . venv/bin/activate
             pip install --no-cache-dir -r requirements.txt
       - run:
-        name: Run Tests
-        command: |
-          . venv/bin/activate
-          python app/tests.py
+          name: Run Tests
+          command: |
+            . venv/bin/activate
+            python app/tests.py
   deploy:
     docker:
       - image: circleci/python:3.7.8
