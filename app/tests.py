@@ -50,7 +50,7 @@ class AppTestCase(unittest.TestCase):
     def testTrailingSlash(self):
         # redirected to /100/
         with self.app.get('/100') as r:
-            self.assertEqual(r.status_code, 301)
+            self.assertEqual(r.status_code, 308)
 
     def testPlaceholder1(self):
         with self.app.get('/300/') as r:

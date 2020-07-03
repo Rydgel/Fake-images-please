@@ -1,6 +1,4 @@
-Flask==1.0.2
-Jinja2==2.10
-Pillow==5.4.1
-Werkzeug==0.14.1
-blinker==1.4
-raven==6.10.0
+Flask==1.1.2
+Jinja2==2.11.2
+Pillow==7.2.0
+Werkzeug==1.0.1
