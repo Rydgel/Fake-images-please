@@ -1,6 +1,6 @@
 FROM tiangolo/meinheld-gunicorn-flask:python3.7-alpine3.8
 
-MAINTAINER Jérôme Mahuet <jerome.mahuet@gmail.com>
+LABEL maintainer="Jérôme Mahuet <jerome.mahuet@gmail.com>"
 
 RUN apk --update --no-cache add \
     build-base \
