@@ -7,10 +7,10 @@ workflows:
   build_master:
     jobs:
       - build_and_test:
-        filters:
-          branches:
-            only:
-              - master
+          filters:
+            branches:
+              only:
+                - master
       - deploy:
         requires:
           - build_and_test
