@@ -48,7 +48,7 @@ jobs:
       - run:
           name: Build and push Docker image
           command: |
-            docker build -t rydgel/$IMAGE_NAME:$TAG .
+            docker build --no-cache -t rydgel/$IMAGE_NAME:$TAG .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push rydgel/$IMAGE_NAME:$TAG
             docker tag rydgel/$IMAGE_NAME:$TAG rydgel/$IMAGE_NAME:latest
