@@ -27,6 +27,8 @@ jobs:
             docker build -t rydgel/$IMAGE_NAME:$TAG .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push rydgel/$IMAGE_NAME:$TAG
+            docker tag rydgel/$IMAGE_NAME:$TAG rydgel/$IMAGE_NAME:latest
+            docker push rydgel/$IMAGE_NAME:latest
       - run:
           name: Deploy app to Digital Ocean Server via Docker
           command: |
