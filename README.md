@@ -1,6 +1,6 @@
 # Fake Images Please?
 
-[![Build Status](https://semaphoreci.com/api/v1/rydgel/fake-images-please/branches/master/badge.svg)](https://semaphoreci.com/rydgel/fake-images-please)
+[![Build Status](https://circleci.com/gh/Rydgel/Fake-images-please.svg?style=svg)](https://circleci.com/gh/Rydgel/Fake-images-please)
 
 When designing websites, you may not have the images you need at first. But you already know the sizes and inserting some placeholders can help you better seeing the layout. Don’t waste your time making dummy images for your mockup or wireframe. Fakeimg.pl is a little tool that generates images with an URL. Choose the size, the colors, even the text. It’s free and [open-source](https://github.com/Rydgel/Fake-images-please).
 
