@@ -2,6 +2,8 @@
 
 [![Build Status](https://circleci.com/gh/Rydgel/Fake-images-please.svg?style=svg)](https://circleci.com/gh/Rydgel/Fake-images-please)
 
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TSXSX65YY4RQL)
+
 When designing websites, you may not have the images you need at first. But you already know the sizes and inserting some placeholders can help you better seeing the layout. Don’t waste your time making dummy images for your mockup or wireframe. Fakeimg.pl is a little tool that generates images with an URL. Choose the size, the colors, even the text. It’s free and [open-source](https://github.com/Rydgel/Fake-images-please).
 
 ## How to use
