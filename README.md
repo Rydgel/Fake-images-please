@@ -25,7 +25,7 @@ Use them directly in an image tag or a CSS background, or whatever you want to.
 ## Change font
 
 There are three *bonus* fonts you can choose by passing `font=lobster`, `font=bebas`, or `font=museo` in the URL.
-Also please not that the `font=noto` is available for chinese/japanese/korean texts.
+Also please note that the `font=noto` is available for chinese/japanese/korean texts.
 
 ## Change font size
 
