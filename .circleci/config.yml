@@ -17,10 +17,10 @@ workflows:
 jobs:
   build_and_test:
     docker:
-      - image: circleci/python:3.7.8
+      - image: cimg/python:3.9.2
     steps:
       - setup_remote_docker:
-          docker_layer_caching: true
+          docker_layer_caching: false
       - checkout
       - run:
           name: Setup VirtualEnv
@@ -35,11 +35,11 @@ jobs:
             python app/tests.py
   deploy:
     docker:
-      - image: circleci/python:3.7.8
+      - image: cimg/python:3.9.2
     steps:
       - checkout
       - setup_remote_docker:
-          docker_layer_caching: true
+          docker_layer_caching: false
       - run:
           name: Variables environment
           command: |
