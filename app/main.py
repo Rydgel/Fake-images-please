@@ -59,7 +59,7 @@ def placeholder(width, height=None,
         "retina": "retina" in request.args
     }
     image = FakeImg(**args)
-    response = make_response(send_file(image.raw, mimetype='image/png', add_etags=False))
+    response = make_response(send_file(image.raw, mimetype='image/png', etag=False))
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 

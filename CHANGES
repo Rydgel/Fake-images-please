@@ -1,6 +1,11 @@
 Fakeimg Changelog
 ===============
 
+Version 0.10
+____________
+- Upgrading to latest Flask / Pillow
+- Upgrading to Python 3.8
+
 Version 0.9
 -----------
 - Adding support for japanese text with `noto` font

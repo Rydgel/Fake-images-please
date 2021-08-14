@@ -63,6 +63,6 @@ $ docker run -d -p 80:80 rydgel/fakeimg:latest
 
 ## About
 
-Made by Jérôme Mahuet in 2018.
+Made by Jérôme Mahuet in 2021.
 Follow [@rydgel](http://twitter.com/rydgel) to stay up-to-date with the project, or if you just want to ask something.
 Feel free to make pull requests.
