@@ -1,4 +1,4 @@
 Flask==2.0.1
 Jinja2==3.0.1
-Pillow==8.3.1
+Pillow==8.3.2
 Werkzeug==2.0.1
