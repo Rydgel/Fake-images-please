@@ -12,7 +12,7 @@ class FakeImg:
         pil_image (PIL.Image.Image): PIL object.
         raw (str): Real image in PNG format.
     """
-    def __init__(self, width, height, background_color, foreground_color, alpha_background, alpha_foreground,
+    def __init__(self, width, height, background_color, foreground_color, alpha_background, alpha_foreground, image_type,
                  text=None, font_name=None, font_size=None, retina=False):
         """Init FakeImg with parameters.
 
@@ -25,6 +25,7 @@ class FakeImg:
             foreground_color (str): The text color of the image. It should be in web hexadecimal format.
                 Example: #FFF, #123456.
             alpha_foreground (int): Alpha value of the foreground color.
+            image_type (string): The image type which can be "png" or "webp".
             text (str): Optional. The actual text which will be drawn on the image.
                 Default: f"{width} x {height}"
             font_name (str): Optional. The font name to use.
@@ -42,6 +43,7 @@ class FakeImg:
         self.alpha_background = alpha_background
         self.foreground_color = f"#{foreground_color}"
         self.alpha_foreground = alpha_foreground
+        self.image_type = image_type
         self.text = text or f"{width} x {height}"
         self.font_name = font_name or "yanone"
         try:
@@ -62,9 +64,13 @@ class FakeImg:
     def raw(self):
         """Create the image on memory and return it"""
         img_io = BytesIO()
-        self.pil_image.save(img_io, 'PNG')
+        self.pil_image.save(img_io, self.image_type.upper())
         img_io.seek(0)
         return img_io
+
+    @property
+    def mimetype(self):
+        return "image/{image_type}".format(image_type = self.image_type)
 
     def _calculate_font_size(self):
         min_side = min(self.width, self.height)

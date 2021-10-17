@@ -4,6 +4,7 @@ LABEL maintainer="Jérôme Mahuet <jerome.mahuet@gmail.com>"
 
 RUN apk --update --no-cache add \
     build-base \
+    libwebp-dev \
     python-dev \
     jpeg-dev \
     libpng \

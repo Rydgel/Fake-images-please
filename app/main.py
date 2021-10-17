@@ -26,22 +26,50 @@ def index():
 
 
 @app.route('/<i:width>/')
+@app.route('/<i:width>/<image_name>.<any("png", "webp):image_type>')
+
 @app.route('/<i:width>/<c:bgd>/')
+@app.route('/<i:width>/<c:bgd>/<image_name>.<any("png", "webp):image_type>')
+
 @app.route('/<i:width>/<c:bgd>,<a:alphabgd>/')
+@app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<image_name>.<any("png", "webp):image_type>')
+
 @app.route('/<i:width>/<c:bgd>/<c:fgd>/')
+@app.route('/<i:width>/<c:bgd>/<c:fgd>/<image_name>.<any("png", "webp):image_type>')
+
 @app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<c:fgd>/')
+@app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<c:fgd>/<image_name>.<any("png", "webp):image_type>')
+
 @app.route('/<i:width>/<c:bgd>/<c:fgd>,<a:alphafgd>/')
+@app.route('/<i:width>/<c:bgd>/<c:fgd>,<a:alphafgd>/<image_name>.<any("png", "webp):image_type>')
+
 @app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<c:fgd>,<a:alphafgd>/')
+@app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<c:fgd>,<a:alphafgd>/<image_name>.<any("png", "webp):image_type>')
+
 @app.route('/<i:width>x<i:height>/')
+@app.route('/<i:width>x<i:height>/<image_name>.<any("png", "webp):image_type>')
+
 @app.route('/<i:width>x<i:height>/<c:bgd>/')
+@app.route('/<i:width>x<i:height>/<c:bgd>/<image_name>.<any("png", "webp):image_type>')
+
 @app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/')
+@app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<image_name>.<any("png", "webp):image_type>')
+
 @app.route('/<i:width>x<i:height>/<c:bgd>/<c:fgd>/')
+@app.route('/<i:width>x<i:height>/<c:bgd>/<c:fgd>/<image_name>.<any("png", "webp):image_type>')
+
 @app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<c:fgd>/')
+@app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<c:fgd>/<image_name>.<any("png", "webp):image_type>')
+
 @app.route('/<i:width>x<i:height>/<c:bgd>/<c:fgd>,<a:alphafgd>/')
+@app.route('/<i:width>x<i:height>/<c:bgd>/<c:fgd>,<a:alphafgd>/<image_name>.<any("png", "webp):image_type>')
+
 @app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<c:fgd>,<a:alphafgd>/')
+@app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<c:fgd>,<a:alphafgd>/<image_name>.<any("png", "webp):image_type>')
+
 def placeholder(width, height=None,
                 bgd="cccccc", fgd="909090",
-                alphabgd=255, alphafgd=255):
+                alphabgd=255, alphafgd=255, image_name="", image_type="png"):
     """This endpoint generates the placeholder itself, based on arguments.
     If the height is missing, just make the image square.
     """
@@ -56,10 +84,11 @@ def placeholder(width, height=None,
         "text": request.args.get('text'),
         "font_name": request.args.get('font'),
         "font_size": request.args.get('font_size'),
-        "retina": "retina" in request.args
+        "retina": "retina" in request.args,
+        "image_type": image_type,
     }
     image = FakeImg(**args)
-    response = make_response(send_file(image.raw, mimetype='image/png', etag=False))
+    response = make_response(send_file(image.raw, mimetype=image.mimetype, etag=False))
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
