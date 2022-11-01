@@ -112,6 +112,10 @@ class FakeImg:
             return f"{font_folder}/font/museo.otf"
         elif self.font_name == "noto":
             return f"{font_folder}/font/noto.ttc"
+        elif self.font_name == "noto-sans":
+            return f"{font_folder}/font/noto-sans.otf"
+        elif self.font_name == "noto-serif":
+            return f"{font_folder}/font/noto-serif.otf"
         else:
             return f"{font_folder}/font/yanone.otf"
 
@@ -125,7 +129,7 @@ class FakeImg:
         draw = ImageDraw.Draw(image)
 
         (_, y_offset) = self.font.getoffset(self.text)
-        text_width, text_height = draw.textsize(self.text, font=self.font)
+        text_width, text_height = draw.multiline_textsize(self.text, font=self.font)
 
         text_coord_x = (self.width - text_width) / 2
         text_coord_y = (self.height - text_height - y_offset) / 2
@@ -133,7 +137,7 @@ class FakeImg:
 
         rgba_foreground = self._hex_alpha_to_rgba(self.foreground_color, self.alpha_foreground)
 
-        draw.text(text_coord, self.text, fill=rgba_foreground, font=self.font)
+        draw.multiline_text(text_coord, self.text, fill=rgba_foreground, font=self.font, align="center")
 
         del draw
 
