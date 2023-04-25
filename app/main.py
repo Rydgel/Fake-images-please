@@ -10,6 +10,7 @@ from helpers.converters import ColorConverter, ImgSizeConverter, AlphaConverter
 
 
 app = Flask(__name__)
+app.url_map.strict_slashes = False
 # Custom converter for matching hexadecimal colors
 app.url_map.converters['c'] = ColorConverter
 # Custom converter for not having an image > 4000px
