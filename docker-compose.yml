@@ -1,7 +1,9 @@
-web:
-  build: .
-  container_name: fakeimg
-  ports:
-    - "80:80"
-  volumes:
-    - ./app:/app
+version: "3"
+services:
+  web:
+    build: .
+    container_name: fakeimg
+    ports:
+      - "80:80"
+    volumes:
+      - ./app:/app
