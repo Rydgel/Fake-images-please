@@ -44,13 +44,13 @@ You can use the font `noto` for support of japanese, korean and chinese text.
 Colors support transparency (0 - 255) by putting the alpha value after the color
 itself. Both colors are supported.
 
-## Emojis and Discord emotes support in text
-The format for Discord emotes is like that: `<:rooThink:596576798351949847>`
-
 ```html
 <img src="https://fakeimg.pl/350x200/ff0000,128/000">
 <img src="https://fakeimg.pl/350x200/ff0000,128/000,10">
 ```
+
+## Emojis and Discord emotes support in text
+The format for Discord emotes is like that: `<:rooThink:596576798351949847>`
 
 ## Set up your own instance
 
