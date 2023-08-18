@@ -1,6 +1,7 @@
 import os
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
+from pilmoji import Pilmoji
 
 
 class FakeImg:
@@ -126,18 +127,22 @@ class FakeImg:
         rgba_background = self._hex_alpha_to_rgba(self.background_color, self.alpha_background)
 
         image = Image.new("RGBA", size, rgba_background)
-        draw = ImageDraw.Draw(image)
+        draw = Pilmoji(image)
 
-        (_, y_offset) = self.font.getoffset(self.text)
-        text_width, text_height = draw.multiline_textsize(self.text, font=self.font)
+        if "\n" in self.text:
+            (_, top, _, bottom) = self.font.getbbox(self.text)
+            y_offset = bottom - top
+        else:
+            y_offset = 0
 
-        text_coord_x = (self.width - text_width) / 2
-        text_coord_y = (self.height - text_height - y_offset) / 2
+        (text_width, text_height) = draw.getsize(self.text, font=self.font)
+        text_coord_x = (self.width - text_width) // 2
+        text_coord_y = (self.height - text_height - y_offset) // 2
         text_coord = (text_coord_x, text_coord_y)
 
         rgba_foreground = self._hex_alpha_to_rgba(self.foreground_color, self.alpha_foreground)
 
-        draw.multiline_text(text_coord, self.text, fill=rgba_foreground, font=self.font, align="center")
+        draw.text(text_coord, self.text, fill=rgba_foreground, font=self.font, align="center", emoji_position_offset=(0, 10))
 
         del draw
 
