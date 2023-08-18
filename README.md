@@ -44,6 +44,9 @@ You can use the font `noto` for support of japanese, korean and chinese text.
 Colors support transparency (0 - 255) by putting the alpha value after the color
 itself. Both colors are supported.
 
+## Emojis and Discord emotes support in text
+The format for Discord emotes is like that: `<:rooThink:596576798351949847>`
+
 ```html
 <img src="https://fakeimg.pl/350x200/ff0000,128/000">
 <img src="https://fakeimg.pl/350x200/ff0000,128/000,10">
@@ -63,6 +66,6 @@ $ docker run -d -p 80:80 rydgel/fakeimg:latest
 
 ## About
 
-Made by Jérôme Mahuet in 2021.
+Made by Jérôme Mahuet.
 Follow [@rydgel](http://twitter.com/rydgel) to stay up-to-date with the project, or if you just want to ask something.
 Feel free to make pull requests.

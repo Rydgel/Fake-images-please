@@ -23,7 +23,7 @@ launch_date = datetime.datetime.now()
 @app.route('/')
 def index():
     """Home page"""
-    return render_template('index.html')
+    return render_template('index.html', now=datetime.datetime.utcnow())
 
 
 @app.route('/<i:width>/')
