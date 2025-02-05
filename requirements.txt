@@ -2,4 +2,4 @@ Flask==2.3.2
 Jinja2==3.1.5
 Pillow==10.0.1
 pilmoji==2.0.4
-Werkzeug==3.0.1
+Werkzeug==3.0.6
