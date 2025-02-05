@@ -54,7 +54,3 @@ jobs:
             docker push rydgel/$IMAGE_NAME:$TAG
             docker tag rydgel/$IMAGE_NAME:$TAG rydgel/$IMAGE_NAME:latest
             docker push rydgel/$IMAGE_NAME:latest
-      - run:
-          name: Deploy app to Digital Ocean Server via Docker
-          command: |
-            ssh -o StrictHostKeyChecking=no root@46.101.160.104 "/bin/bash ./deploy_app.sh rydgel/$IMAGE_NAME:$TAG"
