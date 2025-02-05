@@ -27,46 +27,46 @@ def index():
 
 
 @app.route('/<i:width>/')
-@app.route('/<i:width>/<image_name>.<any("png", "webp):image_type>')
+@app.route('/<i:width>/<image_name>.<any("png", "webp"):image_type>')
 
 @app.route('/<i:width>/<c:bgd>/')
-@app.route('/<i:width>/<c:bgd>/<image_name>.<any("png", "webp):image_type>')
+@app.route('/<i:width>/<c:bgd>/<image_name>.<any("png", "webp"):image_type>')
 
 @app.route('/<i:width>/<c:bgd>,<a:alphabgd>/')
-@app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<image_name>.<any("png", "webp):image_type>')
+@app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<image_name>.<any("png", "webp"):image_type>')
 
 @app.route('/<i:width>/<c:bgd>/<c:fgd>/')
-@app.route('/<i:width>/<c:bgd>/<c:fgd>/<image_name>.<any("png", "webp):image_type>')
+@app.route('/<i:width>/<c:bgd>/<c:fgd>/<image_name>.<any("png", "webp"):image_type>')
 
 @app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<c:fgd>/')
-@app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<c:fgd>/<image_name>.<any("png", "webp):image_type>')
+@app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<c:fgd>/<image_name>.<any("png", "webp"):image_type>')
 
 @app.route('/<i:width>/<c:bgd>/<c:fgd>,<a:alphafgd>/')
-@app.route('/<i:width>/<c:bgd>/<c:fgd>,<a:alphafgd>/<image_name>.<any("png", "webp):image_type>')
+@app.route('/<i:width>/<c:bgd>/<c:fgd>,<a:alphafgd>/<image_name>.<any("png", "webp"):image_type>')
 
 @app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<c:fgd>,<a:alphafgd>/')
-@app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<c:fgd>,<a:alphafgd>/<image_name>.<any("png", "webp):image_type>')
+@app.route('/<i:width>/<c:bgd>,<a:alphabgd>/<c:fgd>,<a:alphafgd>/<image_name>.<any("png", "webp"):image_type>')
 
 @app.route('/<i:width>x<i:height>/')
-@app.route('/<i:width>x<i:height>/<image_name>.<any("png", "webp):image_type>')
+@app.route('/<i:width>x<i:height>/<image_name>.<any("png", "webp"):image_type>')
 
 @app.route('/<i:width>x<i:height>/<c:bgd>/')
-@app.route('/<i:width>x<i:height>/<c:bgd>/<image_name>.<any("png", "webp):image_type>')
+@app.route('/<i:width>x<i:height>/<c:bgd>/<image_name>.<any("png", "webp"):image_type>')
 
 @app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/')
-@app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<image_name>.<any("png", "webp):image_type>')
+@app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<image_name>.<any("png", "webp"):image_type>')
 
 @app.route('/<i:width>x<i:height>/<c:bgd>/<c:fgd>/')
-@app.route('/<i:width>x<i:height>/<c:bgd>/<c:fgd>/<image_name>.<any("png", "webp):image_type>')
+@app.route('/<i:width>x<i:height>/<c:bgd>/<c:fgd>/<image_name>.<any("png", "webp"):image_type>')
 
 @app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<c:fgd>/')
-@app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<c:fgd>/<image_name>.<any("png", "webp):image_type>')
+@app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<c:fgd>/<image_name>.<any("png", "webp"):image_type>')
 
 @app.route('/<i:width>x<i:height>/<c:bgd>/<c:fgd>,<a:alphafgd>/')
-@app.route('/<i:width>x<i:height>/<c:bgd>/<c:fgd>,<a:alphafgd>/<image_name>.<any("png", "webp):image_type>')
+@app.route('/<i:width>x<i:height>/<c:bgd>/<c:fgd>,<a:alphafgd>/<image_name>.<any("png", "webp"):image_type>')
 
 @app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<c:fgd>,<a:alphafgd>/')
-@app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<c:fgd>,<a:alphafgd>/<image_name>.<any("png", "webp):image_type>')
+@app.route('/<i:width>x<i:height>/<c:bgd>,<a:alphabgd>/<c:fgd>,<a:alphafgd>/<image_name>.<any("png", "webp"):image_type>')
 
 def placeholder(width, height=None,
                 bgd="cccccc", fgd="909090",
