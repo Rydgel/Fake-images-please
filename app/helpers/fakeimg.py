@@ -14,7 +14,7 @@ class FakeImg:
         raw (str): Real image in PNG format.
     """
     def __init__(self, width, height, background_color, foreground_color, alpha_background, alpha_foreground, image_type,
-                 text=None, font_name=None, font_size=None, retina=False):
+                 text=None, font_name=None, font_size=None, retina=False, corner_radius=None, corner_radii=None):
         """Init FakeImg with parameters.
 
         Args:
@@ -33,8 +33,10 @@ class FakeImg:
                 Default: "yanone".
                 Fallback to "yanone" if font not found.
             font_size (int): Optional. The font size to use. Default value is calculated based on the image dimension.
-            retina (bool): Optional. Wether to use retina display or not. It basically just multiplies dimension of
+            retina (bool): Optional. Whether to use retina display or not. It basically just multiplies dimension of
             the image by 2.
+            corner_radius (int): Optional. Uniform radius for all corners in pixels.
+            corner_radii (tuple): Optional. Tuple of 4 integers for custom corner radii (top_left, top_right, bottom_right, bottom_left).
         """
         if retina:
             self.width, self.height = [x * 2 for x in [width, height]]
@@ -59,6 +61,15 @@ class FakeImg:
         except (ValueError, TypeError):
             self.font_size = self._calculate_font_size()
         self.font = self._choose_font()
+        
+        # Handle corner radius parameters
+        if corner_radii:
+            self.corner_radii = corner_radii
+        elif corner_radius is not None:
+            self.corner_radii = (corner_radius,) * 4
+        else:
+            self.corner_radii = None
+            
         self.pil_image = self._draw()
 
     @property
@@ -125,8 +136,53 @@ class FakeImg:
         size = (self.width, self.height)
 
         rgba_background = self._hex_alpha_to_rgba(self.background_color, self.alpha_background)
+        
+        # Create a transparent base image
+        image = Image.new("RGBA", size, (0, 0, 0, 0))
+        
+        # Create a mask for rounded corners if needed
+        if self.corner_radii:
+            mask = Image.new("L", size, 0)
+            draw_mask = ImageDraw.Draw(mask)
+            
+            # Draw rounded rectangle on the mask
+            rect = [(0, 0), (self.width - 1, self.height - 1)]
+            if len(set(self.corner_radii)) == 1:
+                # All corners have the same radius
+                draw_mask.rounded_rectangle(rect, radius=self.corner_radii[0], fill=255)
+            else:
+                # Custom radii for each corner
+                # We need to draw multiple arcs and lines to create the rounded rectangle
+                tl, tr, br, bl = self.corner_radii  # top-left, top-right, bottom-right, bottom-left
+                
+                # Start with a filled rectangle
+                draw_mask.rectangle(rect, fill=255)
+                
+                # Draw corner arcs with custom radii
+                if tl > 0:  # Top-left
+                    draw_mask.pieslice((0, 0, tl * 2, tl * 2), 180, 270, fill=0)
+                if tr > 0:  # Top-right
+                    draw_mask.pieslice((self.width - tr * 2, 0, self.width, tr * 2), 270, 0, fill=0)
+                if br > 0:  # Bottom-right
+                    draw_mask.pieslice((self.width - br * 2, self.height - br * 2, self.width, self.height), 0, 90, fill=0)
+                if bl > 0:  # Bottom-left
+                    draw_mask.pieslice((0, self.height - bl * 2, bl * 2, self.height), 90, 180, fill=0)
+            
+            # Only create and composite background if it's not fully transparent
+            if self.alpha_background > 0:
+                # Create background image with the specified color
+                background = Image.new("RGBA", size, rgba_background)
+                # Apply the mask to the background
+                image = Image.composite(background, image, mask)
+            else:
+                # For transparent background, just use the mask directly to create a transparent shape
+                image.putalpha(mask)
 
-        image = Image.new("RGBA", size, rgba_background)
+        else:
+            # No rounded corners, just fill with background color if not transparent
+            if self.alpha_background > 0:
+                image = Image.new("RGBA", size, rgba_background)
+
         draw = Pilmoji(image)
 
         if "\n" in self.text:

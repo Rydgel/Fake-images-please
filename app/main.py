@@ -73,7 +73,39 @@ def placeholder(width, height=None,
                 alphabgd=255, alphafgd=255, image_name="", image_type="png"):
     """This endpoint generates the placeholder itself, based on arguments.
     If the height is missing, just make the image square.
+    
+    Query parameters:
+    - text: Custom text to display
+    - font: Font name to use
+    - font_size: Font size to use
+    - retina: Enable retina mode (2x resolution)
+    - radius: Uniform corner radius for all corners
+    - radius_tl: Top-left corner radius
+    - radius_tr: Top-right corner radius
+    - radius_br: Bottom-right corner radius
+    - radius_bl: Bottom-left corner radius
     """
+    # Get corner radius parameters from query string
+    radius = request.args.get('radius')
+    radius_tl = request.args.get('radius_tl')
+    radius_tr = request.args.get('radius_tr')
+    radius_br = request.args.get('radius_br')
+    radius_bl = request.args.get('radius_bl')
+    
+    # Convert radius parameters to integers if provided
+    corner_radius = int(radius) if radius is not None else None
+    
+    # If any individual corner radius is specified, create the corner_radii tuple
+    if any(r is not None for r in [radius_tl, radius_tr, radius_br, radius_bl]):
+        corner_radii = (
+            int(radius_tl) if radius_tl is not None else 0,
+            int(radius_tr) if radius_tr is not None else 0,
+            int(radius_br) if radius_br is not None else 0,
+            int(radius_bl) if radius_bl is not None else 0
+        )
+    else:
+        corner_radii = None
+    
     # processing image
     args = {
         "width": width,
@@ -87,6 +119,8 @@ def placeholder(width, height=None,
         "font_size": request.args.get('font_size'),
         "retina": "retina" in request.args,
         "image_type": image_type,
+        "corner_radius": corner_radius,
+        "corner_radii": corner_radii
     }
     image = FakeImg(**args)
     response = make_response(send_file(image.raw, mimetype=image.mimetype, etag=False))
