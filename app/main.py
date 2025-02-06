@@ -171,6 +171,9 @@ def send_text_file(file_name):
 def page_not_found(e):
     return render_template('404.html'), 404
 
+@app.route('/check')
+def healthcheck():
+    return "OK", 200
 
 if __name__ == '__main__':
     # app.debug = True

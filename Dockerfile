@@ -1,25 +1,51 @@
-FROM tiangolo/meinheld-gunicorn-flask:python3.8-alpine3.11
+FROM python:3.12-slim-bookworm AS builder
 
-LABEL maintainer="Jérôme Mahuet <jerome.mahuet@gmail.com>"
+WORKDIR /app
 
-RUN apk --update --no-cache add \
-    build-base \
+# Install build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
     libwebp-dev \
-    python-dev \
-    jpeg-dev \
-    libpng \
-    zlib-dev \
-    freetype-dev
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    zlib1g-dev \
+    libfreetype6-dev \
+    # Additional dependencies for Pillow
+    libtiff5-dev \
+    libxcb1-dev \
+    python3-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-ENV LIBRARY_PATH=/lib:/usr/lib
+# Install Python dependencies
+COPY requirements.txt /tmp/
+RUN pip install --prefix=/install --no-cache-dir -r /tmp/requirements.txt
 
-ENV NGINX_WORKER_PROCESSES auto
-ENV STATIC_PATH /app/static
+# --- Production Image ---
+FROM python:3.12-slim-bookworm
 
-RUN pip install --upgrade pip
-ADD requirements.txt /tmp/
-RUN pip install --requirement /tmp/requirements.txt
+WORKDIR /app
 
+# Copy installed dependencies from the builder stage
+COPY --from=builder /install /usr/local
+
+# Copy the application code
+COPY ./app /app
+
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libjpeg62-turbo \
+    libwebp7 \
+    libfreetype6 \
+    libtiff6 \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Expose the port
 EXPOSE 80
 
-COPY ./app /app
+# Add a healthcheck (adjust the path as needed)
+HEALTHCHECK --interval=30s --timeout=3s \
+    CMD curl --fail http://localhost/check || exit 1
+
+# Run Gunicorn (adjust the number of workers and other settings as needed)
+CMD ["gunicorn", "--bind", "0.0.0.0:80", "--workers", "4", "main:app"]

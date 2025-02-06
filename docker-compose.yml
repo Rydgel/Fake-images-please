@@ -1,9 +1,10 @@
-version: "3"
 services:
   web:
-    build: .
+    build:
+      context: .
     container_name: fakeimg
     ports:
       - "80:80"
     volumes:
       - ./app:/app
+    restart: unless-stopped
